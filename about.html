@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – Sunshine Kids Preschool</title>
+  <meta name="description" content="Learn about Sunshine Kids Preschool – our mission, vision, history, and the dedicated team behind our nurturing learning environment." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .about-story { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .story-visual { background: linear-gradient(135deg, #ffe8e8, #fff3cd); border-radius: 30px; padding: 3rem; text-align: center; font-size: 6rem; }
+    .story-text h2 { font-size: 2rem; margin-bottom: 1rem; }
+    .story-text p { color: var(--text-light); line-height: 1.8; margin-bottom: 1rem; }
+    .milestone { display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start; }
+    .milestone-year { background: var(--primary); color: white; padding: 0.5rem 0.8rem; border-radius: 10px; font-weight: 800; font-family: 'Fredoka One', cursive; font-size: 1rem; white-space: nowrap; }
+    .milestone-text h4 { font-weight: 700; margin-bottom: 0.2rem; }
+    .milestone-text p { color: var(--text-light); font-size: 0.9rem; }
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+    .value-card { background: var(--white); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); text-align: center; transition: var(--transition); }
+    .value-card:hover { transform: translateY(-8px); }
+    .value-card .vi { font-size: 3rem; margin-bottom: 1rem; }
+    .value-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .value-card p { color: var(--text-light); font-size: 0.9rem; line-height: 1.6; }
+    .facilities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; }
+    .facility-item { background: var(--white); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); display: flex; align-items: center; gap: 1rem; transition: var(--transition); }
+    .facility-item:hover { transform: translateX(8px); }
+    .facility-icon { font-size: 2rem; }
+    .facility-item h4 { font-size: 0.95rem; }
+    .facility-item p { color: var(--text-light); font-size: 0.8rem; }
+    .accreditation-bar { background: linear-gradient(135deg, var(--secondary), var(--purple)); color: white; padding: 3rem 2rem; border-radius: var(--radius); text-align: center; }
+    .acc-grid { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 2rem; }
+    .acc-item { text-align: center; }
+    .acc-item .acc-icon { font-size: 3rem; }
+    .acc-item p { font-size: 0.85rem; opacity: 0.9; margin-top: 0.5rem; }
+    @media (max-width: 768px) { .about-story { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo"><span class="logo-icon">☀️</span><span class="logo-text">Sunshine <span>Kids</span></span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="admissions.html">Admissions</a></li>
+      <li><a href="classes.html">Classes</a></li>
+      <li><a href="teachers.html">Teachers</a></li>
+      <li><a href="activities.html">Activities</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" class="nav-btn" onclick="openModal('loginModal')">Login</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="page-hero">
+    <h1>🏫 About Our School</h1>
+    <p>A story of love, learning, and little footprints since 2010</p>
+  </div>
+  <div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a> › About Us</div></div>
+
+  <!-- OUR STORY -->
+  <section class="section">
+    <div class="container">
+      <div class="about-story">
+        <div class="story-visual">
+          🏫<br/>
+          <div style="font-size:1.5rem; margin-top:1rem; font-family:'Fredoka One', cursive; color:var(--primary);">Est. 2010</div>
+          <div style="font-size:1rem; color:var(--text-light); margin-top:0.5rem; font-size:0.95rem;">15 Years of Nurturing Dreams</div>
+        </div>
+        <div class="story-text">
+          <span class="section-tag">📖 Our Story</span>
+          <h2>How It All <span class="highlight">Began</span></h2>
+          <p>Sunshine Kids Preschool was founded in 2010 with a simple but powerful dream: to create a place where every child feels safe, loved, and excited to learn. What started as a small 3-room school with 30 students has grown into one of the most trusted preschools in the region.</p>
+          <p>Our founder, Mrs. Lakshmi Nair, a child development specialist with 20+ years of experience, envisioned a school that combines the warmth of home with the structured joy of early childhood education.</p>
+          <p>Today, we proudly serve 500+ families and continue to be guided by the same core belief — every child is a unique star waiting to shine!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">🌟 Mission & Vision</span>
+        <h2>What Drives Us Every Day</h2>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-accent" style="background: linear-gradient(90deg, var(--primary), var(--orange));"></div>
+          <div class="card-icon">🎯</div>
+          <h3>Our Mission</h3>
+          <p>To provide a safe, stimulating, and joyful learning environment that nurtures the whole child — intellectually, emotionally, socially, and physically — through play-based, child-centred education.</p>
+        </div>
+        <div class="card">
+          <div class="card-accent" style="background: linear-gradient(90deg, var(--secondary), var(--green));"></div>
+          <div class="card-icon">🔭</div>
+          <h3>Our Vision</h3>
+          <p>To be a centre of excellence in early childhood education where every child develops a lifelong love of learning, strong values, and the confidence to reach their full potential.</p>
+        </div>
+        <div class="card">
+          <div class="card-accent" style="background: linear-gradient(90deg, var(--purple), var(--secondary));"></div>
+          <div class="card-icon">💎</div>
+          <h3>Our Philosophy</h3>
+          <p>We believe childhood is not a race. Every child learns at their own pace, and our role is to be their guide, cheerleader, and safe harbour as they explore the world around them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MILESTONES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">🏆 Our Journey</span>
+        <h2>15 Years of Milestones</h2>
+      </div>
+      <div style="max-width:700px; margin:0 auto;">
+        <div class="milestone"><span class="milestone-year">2010</span><div class="milestone-text"><h4>School Founded</h4><p>Opened with 30 students, 3 classrooms, and a big dream.</p></div></div>
+        <div class="milestone"><span class="milestone-year">2013</span><div class="milestone-text"><h4>Expanded Campus</h4><p>Added 8 new classrooms, a playground, and a library wing.</p></div></div>
+        <div class="milestone"><span class="milestone-year">2015</span><div class="milestone-text"><h4>Best Preschool Award</h4><p>Recognized as the Best Preschool in the district by the Education Board.</p></div></div>
+        <div class="milestone"><span class="milestone-year">2018</span><div class="milestone-text"><h4>Digital Classrooms</h4><p>Introduced smart boards and interactive learning technology in all classrooms.</p></div></div>
+        <div class="milestone"><span class="milestone-year">2021</span><div class="milestone-text"><h4>500 Student Milestone</h4><p>Celebrated welcoming our 500th student with a grand school fest.</p></div></div>
+        <div class="milestone"><span class="milestone-year">2025</span><div class="milestone-text"><h4>ISO Certified</h4><p>Achieved ISO 9001 certification for quality education and management systems.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE VALUES -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">💛 Core Values</span>
+        <h2>The Heart of Everything We Do</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card"><div class="vi">❤️</div><h3>Love & Care</h3><p>Every child is treated with unconditional love, warmth, and individual attention.</p></div>
+        <div class="value-card"><div class="vi">🛡️</div><h3>Safety First</h3><p>A secure, child-proofed environment where children feel protected at all times.</p></div>
+        <div class="value-card"><div class="vi">🌈</div><h3>Inclusivity</h3><p>We celebrate diversity and ensure every child belongs and feels valued.</p></div>
+        <div class="value-card"><div class="vi">🌱</div><h3>Growth Mindset</h3><p>We encourage curiosity, resilience, and the joy of learning from every experience.</p></div>
+        <div class="value-card"><div class="vi">🤝</div><h3>Community</h3><p>Strong partnerships with parents and the community for holistic child development.</p></div>
+        <div class="value-card"><div class="vi">⭐</div><h3>Excellence</h3><p>Committed to the highest standards in early childhood education and care.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACILITIES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">🏗️ Our Facilities</span>
+        <h2>Built for Little Explorers</h2>
+      </div>
+      <div class="facilities-grid">
+        <div class="facility-item"><div class="facility-icon">🏫</div><div><h4>Smart Classrooms</h4><p>Interactive whiteboards & tech-enabled learning</p></div></div>
+        <div class="facility-item"><div class="facility-icon">🛝</div><div><h4>Outdoor Playground</h4><p>Safe, age-appropriate play equipment</p></div></div>
+        <div class="facility-item"><div class="facility-icon">📚</div><div><h4>Mini Library</h4><p>1,000+ picture books and story collections</p></div></div>
+        <div class="facility-item"><div class="facility-icon">🎨</div><div><h4>Art Studio</h4><p>Dedicated space for creative expression</p></div></div>
+        <div class="facility-item"><div class="facility-icon">🎵</div><div><h4>Music Room</h4><p>Instruments and sound-proofed music studio</p></div></div>
+        <div class="facility-item"><div class="facility-icon">🍽️</div><div><h4>Dining Hall</h4><p>Hygienic, nutritious meals served daily</p></div></div>
+        <div class="facility-item"><div class="facility-icon">🏥</div><div><h4>Medical Room</h4><p>On-site nurse and first aid facilities</p></div></div>
+        <div class="facility-item"><div class="facility-icon">📹</div><div><h4>CCTV Security</h4><p>24/7 monitored campus for safety</p></div></div>
+        <div class="facility-item"><div class="facility-icon">🚌</div><div><h4>School Bus</h4><p>GPS-tracked safe transportation service</p></div></div>
+        <div class="facility-item"><div class="facility-icon">💻</div><div><h4>Computer Lab</h4><p>Age-appropriate digital literacy programs</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCREDITATIONS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="accreditation-bar">
+        <h2>🏆 Awards & Accreditations</h2>
+        <p>Trusted, certified, and recognized for excellence in early childhood education</p>
+        <div class="acc-grid">
+          <div class="acc-item"><div class="acc-icon">🥇</div><p>Best Preschool<br/>District Award 2015</p></div>
+          <div class="acc-item"><div class="acc-icon">📋</div><p>ISO 9001<br/>Certified 2025</p></div>
+          <div class="acc-item"><div class="acc-icon">🎓</div><p>Affiliated with<br/>State Education Board</p></div>
+          <div class="acc-item"><div class="acc-icon">🌟</div><p>5-Star Safety<br/>Rating</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><span class="logo-icon">☀️</span><span class="logo-text">Sunshine <span style="color:var(--secondary);">Kids</span></span></div>
+          <p>Nurturing little minds with love and excellence since 2010.</p>
+          <div class="social-links">
+            <a class="social-link" href="#">📘</a><a class="social-link" href="#">📸</a><a class="social-link" href="#">▶️</a>
+          </div>
+        </div>
+        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="admissions.html">Admissions</a></li><li><a href="classes.html">Classes</a></li></ul></div>
+        <div class="footer-col"><h4>Programs</h4><ul><li><a href="classes.html">Playgroup</a></li><li><a href="classes.html">Nursery</a></li><li><a href="classes.html">Junior KG</a></li><li><a href="classes.html">Senior KG</a></li></ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul><li><a href="#">📍 123 School Lane</a></li><li><a href="#">📞 +91 98765 43210</a></li><li><a href="#">✉️ info@sunshinekids.edu</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 Sunshine Kids Preschool. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <div class="modal" id="loginModal">
+    <div class="modal-box">
+      <span class="modal-close" onclick="closeModal('loginModal')">✕</span>
+      <div style="text-align:center;margin-bottom:1.5rem;"><div style="font-size:3rem;">🔐</div><h2>Portal Login</h2></div>
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('parent')">👨‍👩‍👧 Parent</button>
+        <button class="tab-btn" onclick="switchTab('teacher')">👩‍🏫 Teacher</button>
+        <button class="tab-btn" onclick="switchTab('admin')">🛡️ Admin</button>
+      </div>
+      <div class="tab-content active" id="tab-parent"><div class="form-group"><label>Email</label><input type="email" placeholder="parent@email.com" /></div><div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" /></div><button class="btn btn-primary" style="width:100%;justify-content:center;">Login as Parent</button></div>
+      <div class="tab-content" id="tab-teacher"><div class="form-group"><label>Staff ID</label><input type="text" placeholder="teacher@sunshinekids.edu" /></div><div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" /></div><button class="btn btn-teal" style="width:100%;justify-content:center;">Login as Teacher</button></div>
+      <div class="tab-content" id="tab-admin"><div class="form-group"><label>Admin ID</label><input type="text" placeholder="admin@sunshinekids.edu" /></div><div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" /></div><button class="btn" style="background:linear-gradient(135deg,var(--purple),#6c3483);color:white;width:100%;justify-content:center;">Login as Admin</button></div>
+    </div>
+  </div>
+  <script>
+    function openModal(id) { document.getElementById(id).classList.add('open'); }
+    function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+    function switchTab(role) { document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active')); document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active')); event.target.classList.add('active'); document.getElementById('tab-'+role).classList.add('active'); }
+    document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');}));
+  </script>
+</body>
+</html>

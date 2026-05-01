@@ -1,0 +1,106 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8">
+<title>Little Millennium Preschool Documentation</title>
+<style>
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 12pt;
+    color: #000000;
+    line-height: 1.5;
+  }
+  h1 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 24pt;
+    margin-bottom: 24pt;
+  }
+  h2 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14pt;
+    font-weight: bold;
+    margin-top: 18pt;
+    margin-bottom: 10pt;
+  }
+  p, li, td, th {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 12pt;
+    line-height: 1.5;
+    margin-bottom: 10pt;
+  }
+  ul {
+    margin-top: 0;
+  }
+  strong {
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<h1>LITTLE MILLENNIUM PRESCHOOL - PROJECT DOCUMENTATION</h1>
+
+<h2>1. Introduction</h2>
+<p>This document provides a clear and comprehensive overview of the Little Millennium Preschool frontend web application. The project was successfully built and migrated into a dynamic, modern React.js application. The primary goal of this platform is to provide a seamless, child-friendly, and highly responsive user experience for parents, teachers, and school administrators, making information easily accessible.</p>
+
+<h2>2. Technology Stack</h2>
+<p>The project utilizes the latest industry-standard web technologies to ensure speed, security, and maintainability:</p>
+<ul>
+  <li><strong>React.js:</strong> The core JavaScript library used for building modular user interface components and managing the application state.</li>
+  <li><strong>Vite:</strong> The modern build tool chosen for its lightning-fast development server and optimized production builds.</li>
+  <li><strong>React Router DOM:</strong> Utilized for client-side routing, enabling instant, smooth page transitions without reloading the browser.</li>
+  <li><strong>CSS:</strong> A centralized CSS design system using variables for colors, shadows, and spacing to maintain a consistent, vibrant aesthetic tailored for a preschool environment.</li>
+</ul>
+
+<h2>3. Core Features and Web Pages</h2>
+<p>The application is structured as a Single Page Application (SPA) with the following dedicated pages. Anyone visiting the website can navigate these easily:</p>
+<ul>
+  <li><strong>Home Page:</strong> Acts as the primary landing page featuring a welcome section, immediate announcements, quick action links, "Why Choose Us" statistics, and parent testimonials.</li>
+  <li><strong>About Us:</strong> Details the school's rich history since its founding in 2010, its core values, mission, vision, and the physical facilities available on the campus.</li>
+  <li><strong>Admissions:</strong> Outlines the eligibility criteria by age group, transparent fee structures, and the step-by-step application process. It includes a functioning digital admission form.</li>
+  <li><strong>Classes & Programs:</strong> Showcases the educational divisions (Playgroup, Nursery, Junior KG, Senior KG) and provides a typical daily routine schedule for the children.</li>
+  <li><strong>Activities & Events:</strong> Features a calendar of upcoming school events, regular weekly extracurricular activities, and parent communication channels.</li>
+  <li><strong>Teachers & Staff:</strong> Introduces the leadership team, the dedicated classroom educators, and the support staff that keep the school running safely.</li>
+  <li><strong>Gallery:</strong> A visually appealing image grid with interactive category filters (e.g., Art, Classroom, Outdoor) and a click-to-enlarge photo viewer.</li>
+  <li><strong>Contact Us:</strong> Provides all necessary communication details, an interactive Google Maps location view, an FAQ section, and a direct inquiry form.</li>
+</ul>
+
+<h2>4. Global Information and Branding</h2>
+<p>The application has been customized with the specific branding details of the institution:</p>
+<ul>
+  <li><strong>School Name:</strong> Little Millennium Preschool</li>
+  <li><strong>Official Address:</strong> 222, 6th Cross Rd, Mico Layout, 2nd Stage Layout, BTM Layout, Bengaluru, Karnataka 560076</li>
+  <li><strong>Phone & WhatsApp:</strong> +91 78923 26254</li>
+  <li><strong>Email Contacts:</strong> info@littlemillennium.edu, admissions@littlemillennium.edu</li>
+  <li><strong>Operating Hours:</strong> 
+    <ul>
+      <li>Monday to Friday: 9:00 AM &ndash; 5:00 PM</li>
+      <li>Saturday: 9:00 AM &ndash; 12:00 PM</li>
+      <li>Sunday: Closed</li>
+    </ul>
+  </li>
+</ul>
+
+<h2>5. Component Architecture</h2>
+<p>To promote code reusability and easier maintenance by developers, the project uses several shared components across multiple pages:</p>
+<ul>
+  <li><strong>Navbar:</strong> A top navigation bar featuring the school logo and links to all pages. It is mobile-friendly with a dropdown menu.</li>
+  <li><strong>Footer:</strong> A global footer present at the bottom of all pages containing quick links, branding, address, and copyright details.</li>
+  <li><strong>LoginModal:</strong> A popup window allowing role-based access for Parents, Teachers, and Admins to enter their portals.</li>
+</ul>
+
+<h2>6. Developer Guide (Running the Project)</h2>
+<p>For future developers or administrators managing the codebase, the following standard commands apply to run the website code:</p>
+<ul>
+  <li><strong>Installation:</strong> Run <strong>npm install</strong> in the terminal to download all required packages.</li>
+  <li><strong>Start Server:</strong> Run <strong>npm run dev</strong> to preview the site locally on your computer.</li>
+  <li><strong>Build for Production:</strong> Run <strong>npm run build</strong> to compile and optimize the files to be uploaded to a live web hosting server.</li>
+</ul>
+
+<h2>7. Conclusion</h2>
+<p>The Little Millennium Preschool website is a robust, beautifully designed application that reflects the high standards of the institution. By utilizing React and Vite, the codebase is highly performant, easily scalable, and prepared for future enhancements.</p>
+
+</body>
+</html>

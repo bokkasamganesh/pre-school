@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sunshine Kids Preschool – Where Every Child Shines</title>
+  <meta name="description" content="Sunshine Kids Preschool offers a warm, nurturing environment for children aged 2–6. Enroll today and watch your child flourish!" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* HOME-SPECIFIC STYLES */
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; }
+    .why-card { background: var(--white); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); text-align: center; transition: var(--transition); border-top: 5px solid transparent; }
+    .why-card:nth-child(1) { border-color: var(--primary); }
+    .why-card:nth-child(2) { border-color: var(--secondary); }
+    .why-card:nth-child(3) { border-color: var(--accent); }
+    .why-card:nth-child(4) { border-color: var(--purple); }
+    .why-card:hover { transform: translateY(-8px); }
+    .why-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .why-card h3 { font-size: 1.2rem; margin-bottom: 0.6rem; }
+    .why-card p { color: var(--text-light); font-size: 0.9rem; line-height: 1.7; }
+
+    .programs-banner { background: linear-gradient(135deg, var(--secondary), var(--purple)); color: var(--white); border-radius: var(--radius); padding: 3rem 2rem; text-align: center; margin: 2rem 0; }
+    .programs-banner h2 { font-size: 2rem; margin-bottom: 1rem; }
+    .programs-banner p { opacity: 0.9; margin-bottom: 2rem; }
+
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .testimonial-card { background: var(--white); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); position: relative; }
+    .testimonial-card::before { content: '"'; font-size: 5rem; color: var(--primary); opacity: 0.15; position: absolute; top: -10px; left: 20px; font-family: Georgia, serif; line-height: 1; }
+    .testimonial-text { font-style: italic; color: var(--text-light); line-height: 1.7; margin-bottom: 1.2rem; }
+    .testimonial-author { display: flex; align-items: center; gap: 1rem; }
+    .author-avatar { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+    .author-name { font-weight: 700; }
+    .author-role { font-size: 0.85rem; color: var(--text-light); }
+    .stars { color: var(--accent); font-size: 1rem; margin-bottom: 0.5rem; }
+
+    .cta-section { background: linear-gradient(135deg, var(--primary) 0%, var(--orange) 100%); color: var(--white); text-align: center; padding: 5rem 2rem; }
+    .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .cta-section p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-white { background: var(--white); color: var(--primary); }
+    .btn-white:hover { background: var(--accent); color: var(--text); transform: translateY(-3px); }
+    .btn-outline-white { background: transparent; color: var(--white); border: 2px solid var(--white); border-radius: 50px; padding: 0.8rem 2rem; font-weight: 700; font-size: 1rem; cursor: pointer; font-family: 'Nunito', sans-serif; transition: var(--transition); display: inline-flex; align-items: center; }
+    .btn-outline-white:hover { background: var(--white); color: var(--primary); transform: translateY(-3px); }
+
+    .quick-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 3rem; }
+    .quick-link-card { background: var(--white); border-radius: var(--radius); padding: 1.5rem 1rem; text-align: center; box-shadow: var(--shadow); cursor: pointer; transition: var(--transition); text-decoration: none; color: var(--text); }
+    .quick-link-card:hover { transform: translateY(-5px); background: var(--primary); color: var(--white); }
+    .quick-link-card .ql-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .quick-link-card span { font-weight: 700; font-size: 0.9rem; display: block; }
+
+    .events-section .events-list { display: flex; flex-direction: column; gap: 1rem; }
+    .notice-section { background: #fff8e1; border-radius: var(--radius); padding: 2rem; }
+    .notice-section h3 { margin-bottom: 1rem; color: var(--orange); }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    <span class="ann-label">📢 Notice</span>
+    <span class="ann-text">🎉 Admissions Open for 2025–26 Academic Year &nbsp;&nbsp;|&nbsp;&nbsp; 🌟 Annual Day Celebration – May 15th &nbsp;&nbsp;|&nbsp;&nbsp; 📚 Parent-Teacher Meeting – April 30th &nbsp;&nbsp;|&nbsp;&nbsp; 🎨 Art & Craft Competition – May 5th</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logo-icon">☀️</span>
+      <span class="logo-text">Sunshine <span>Kids</span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="admissions.html">Admissions</a></li>
+      <li><a href="classes.html">Classes</a></li>
+      <li><a href="teachers.html">Teachers</a></li>
+      <li><a href="activities.html">Activities</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" class="nav-btn" onclick="openModal('loginModal')">Login</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <span class="hero-tag">🌈 Welcome to Sunshine Kids Preschool</span>
+        <h1>Where Every <span>Little Star</span> Shines Bright!</h1>
+        <p>A warm, nurturing, and fun-filled learning environment where children aged 2–6 explore, discover, and grow. Building the foundation of a lifetime of learning through play, creativity, and love.</p>
+        <div class="hero-btns">
+          <a href="admissions.html" class="btn btn-primary">🎒 Apply Now</a>
+          <a href="about.html" class="btn btn-secondary">Learn More →</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <span class="floating-emoji fe-1">🌟</span>
+          <span class="floating-emoji fe-2">🎨</span>
+          <span class="floating-emoji fe-3">🦋</span>
+          <div class="kids-illustration">🧒👧🧒</div>
+          <h3 style="text-align:center; font-size:1.3rem; margin-bottom:0.5rem;">Join Our Happy Family!</h3>
+          <p style="text-align:center; color:var(--text-light); font-size:0.9rem;">500+ happy students every year</p>
+          <div class="hero-stats">
+            <div class="stat-card">
+              <div class="stat-num">500+</div>
+              <div class="stat-label">Happy Kids</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num">25+</div>
+              <div class="stat-label">Teachers</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num">15+</div>
+              <div class="stat-label">Years</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK LINKS -->
+  <section class="section section-alt" style="padding-top: 2rem; padding-bottom: 2rem;">
+    <div class="container">
+      <div class="quick-links">
+        <a href="admissions.html" class="quick-link-card">
+          <div class="ql-icon">📝</div><span>Admissions</span>
+        </a>
+        <a href="classes.html" class="quick-link-card">
+          <div class="ql-icon">📚</div><span>Our Classes</span>
+        </a>
+        <a href="activities.html" class="quick-link-card">
+          <div class="ql-icon">🎭</div><span>Activities</span>
+        </a>
+        <a href="gallery.html" class="quick-link-card">
+          <div class="ql-icon">📸</div><span>Gallery</span>
+        </a>
+        <a href="teachers.html" class="quick-link-card">
+          <div class="ql-icon">👩‍🏫</div><span>Our Teachers</span>
+        </a>
+        <a href="contact.html" class="quick-link-card">
+          <div class="ql-icon">📞</div><span>Contact Us</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">💛 Why Choose Us</span>
+        <h2>A Place Kids <span class="highlight">Love</span> to Come Every Day</h2>
+        <p>We create memorable experiences that spark curiosity, creativity, and lifelong love of learning in every child.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">🏫</div>
+          <h3>Safe Environment</h3>
+          <p>Child-proofed classrooms, CCTV monitoring, and trained staff ensure your child's safety at all times.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🎓</div>
+          <h3>Expert Teachers</h3>
+          <p>Certified, experienced, and passionate educators dedicated to each child's individual growth journey.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🌿</div>
+          <h3>Holistic Learning</h3>
+          <p>Our curriculum balances academics, arts, sports, and social skills for all-round development.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🤝</div>
+          <h3>Parent Partnership</h3>
+          <p>Regular updates, parent meetings, and open communication keep you involved every step of the way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS & NOTICES -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="two-col">
+        <!-- UPCOMING EVENTS -->
+        <div class="events-section">
+          <div class="section-header" style="text-align:left;">
+            <span class="section-tag">📅 What's On</span>
+            <h2>Upcoming Events</h2>
+          </div>
+          <div class="events-list">
+            <div class="event-card">
+              <div class="event-date"><div class="event-day">30</div><div class="event-month">Apr</div></div>
+              <div class="event-info">
+                <h4>Parent-Teacher Meeting</h4>
+                <p>Quarterly progress discussion for all classes</p>
+                <div class="event-time">🕐 10:00 AM – 1:00 PM</div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-date" style="background: var(--secondary);"><div class="event-day">05</div><div class="event-month">May</div></div>
+              <div class="event-info">
+                <h4>🎨 Art & Craft Competition</h4>
+                <p>Annual creativity showcase for all students</p>
+                <div class="event-time">🕐 9:00 AM – 12:00 PM</div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-date" style="background: var(--purple);"><div class="event-day">15</div><div class="event-month">May</div></div>
+              <div class="event-info">
+                <h4>🌟 Annual Day Celebration</h4>
+                <p>Cultural performances, awards & fun activities</p>
+                <div class="event-time">🕐 5:00 PM – 8:00 PM</div>
+              </div>
+            </div>
+          </div>
+          <a href="activities.html" class="btn btn-teal mt-2" style="margin-top:1.5rem;">View All Events →</a>
+        </div>
+
+        <!-- NOTICE BOARD -->
+        <div>
+          <div class="section-header" style="text-align:left;">
+            <span class="section-tag" style="background: linear-gradient(135deg, var(--orange), var(--accent)); color: var(--text);">📌 Notice Board</span>
+            <h2>Latest Notices</h2>
+          </div>
+          <div class="notice-card">
+            <div class="notice-date">April 22, 2025</div>
+            <h4>Admissions Open for 2025–26</h4>
+            <p>Registrations are now open. Limited seats available. Apply early to secure your spot.</p>
+          </div>
+          <div class="notice-card" style="border-color: var(--secondary);">
+            <div class="notice-date" style="color: var(--secondary);">April 18, 2025</div>
+            <h4>Summer Camp Registration</h4>
+            <p>Fun-filled summer camp from May 20 to June 10. Register at the front desk or online.</p>
+          </div>
+          <div class="notice-card" style="border-color: var(--purple);">
+            <div class="notice-date" style="color: var(--purple);">April 15, 2025</div>
+            <h4>School Holiday – May 1st</h4>
+            <p>The school will remain closed on May 1st on account of Labour Day. Classes resume May 2nd.</p>
+          </div>
+          <div class="notice-card" style="border-color: var(--orange);">
+            <div class="notice-date" style="color: var(--orange);">April 10, 2025</div>
+            <h4>Fee Payment Reminder</h4>
+            <p>Term 2 fees are due by April 30th. Please submit on time to avoid late charges.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS BANNER -->
+  <section class="section">
+    <div class="container">
+      <div class="programs-banner">
+        <h2>🎓 Our Programs for Every Age Group</h2>
+        <p>From Playgroup to Senior KG — we have the perfect program for your little one's stage of development.</p>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-bottom:1.5rem;">
+          <span class="badge badge-green" style="font-size:1rem; padding:0.5rem 1.2rem;">👶 Playgroup (2–3 yrs)</span>
+          <span class="badge badge-blue" style="font-size:1rem; padding:0.5rem 1.2rem;">🧒 Nursery (3–4 yrs)</span>
+          <span class="badge" style="background:#ede9fe; color:var(--purple); font-size:1rem; padding:0.5rem 1.2rem;">📖 Jr. KG (4–5 yrs)</span>
+          <span class="badge badge-red" style="font-size:1rem; padding:0.5rem 1.2rem;">🎒 Sr. KG (5–6 yrs)</span>
+        </div>
+        <a href="classes.html" class="btn btn-white btn" style="color:var(--secondary); background:white;">Explore Programs →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">💬 Parent Stories</span>
+        <h2>What Parents Are Saying</h2>
+        <p>Hear from the families who trust us with their most precious ones every day.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"My daughter absolutely loves going to school every morning! The teachers are so caring and patient. She has grown so much in confidence and creativity since joining Sunshine Kids."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:#ffe8e8;">👩</div>
+            <div><div class="author-name">Priya Sharma</div><div class="author-role">Mother of Aaradhya, Nursery</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"The best preschool in the city! The curriculum is thoughtfully designed, and the staff communicates regularly with parents. My son is thriving both academically and socially."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:#e8f8ff;">👨</div>
+            <div><div class="author-name">Rahul Mehta</div><div class="author-role">Father of Arjun, Jr. KG</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"The school provides a perfect blend of learning and fun. My twins have made wonderful friends and come home every day excited to share what they learned. Highly recommended!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:#f0fff0;">👩</div>
+            <div><div class="author-name">Anita Gupta</div><div class="author-role">Mother of twins, Playgroup</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY PREVIEW -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">📸 Our Moments</span>
+        <h2>Glimpses of Happy Days</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item" style="background: linear-gradient(135deg, #ffe0e0, #ffb3b3);">🎨<div class="gallery-overlay"><span>Art Class</span></div></div>
+        <div class="gallery-item" style="background: linear-gradient(135deg, #e0f8ff, #b3e8ff);">🎵<div class="gallery-overlay"><span>Music Time</span></div></div>
+        <div class="gallery-item" style="background: linear-gradient(135deg, #e8ffe0, #b3ffb3);">🌳<div class="gallery-overlay"><span>Outdoor Play</span></div></div>
+        <div class="gallery-item" style="background: linear-gradient(135deg, #fff3e0, #ffd79e);">📚<div class="gallery-overlay"><span>Story Hour</span></div></div>
+        <div class="gallery-item" style="background: linear-gradient(135deg, #f3e0ff, #d9b3ff);">🎭<div class="gallery-overlay"><span>Drama Club</span></div></div>
+        <div class="gallery-item" style="background: linear-gradient(135deg, #e0fff3, #b3ffd9);">🏃<div class="gallery-overlay"><span>Sports Day</span></div></div>
+      </div>
+      <div class="text-center mt-2">
+        <a href="gallery.html" class="btn btn-primary">View Full Gallery 📸</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <h2>Ready to Give Your Child the Best Start? 🌟</h2>
+    <p>Join hundreds of happy families. Enroll your child at Sunshine Kids Preschool today!</p>
+    <div class="cta-btns">
+      <a href="admissions.html" class="btn btn-white btn">🎒 Apply for Admission</a>
+      <a href="contact.html" class="btn-outline-white">📞 Contact Us</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-icon">☀️</span>
+            <span class="logo-text">Sunshine <span style="color:var(--secondary);">Kids</span></span>
+          </div>
+          <p>A place where little minds bloom and big dreams begin. Nurturing every child with love, creativity, and world-class early education since 2010.</p>
+          <div class="social-links">
+            <a class="social-link" href="#">📘</a>
+            <a class="social-link" href="#">📸</a>
+            <a class="social-link" href="#">▶️</a>
+            <a class="social-link" href="#">🐦</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="classes.html">Playgroup</a></li>
+            <li><a href="classes.html">Nursery</a></li>
+            <li><a href="classes.html">Junior KG</a></li>
+            <li><a href="classes.html">Senior KG</a></li>
+            <li><a href="activities.html">Summer Camp</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="#">📍 123 School Lane, City</a></li>
+            <li><a href="#">📞 +91 98765 43210</a></li>
+            <li><a href="#">✉️ info@sunshinekids.edu</a></li>
+            <li><a href="#">🕐 Mon–Sat: 8AM – 2PM</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Sunshine Kids Preschool. All rights reserved. Made with ❤️ for little learners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LOGIN MODAL -->
+  <div class="modal" id="loginModal">
+    <div class="modal-box">
+      <span class="modal-close" onclick="closeModal('loginModal')">✕</span>
+      <div style="text-align:center; margin-bottom:1.5rem;">
+        <div style="font-size:3rem;">🔐</div>
+        <h2 style="font-size:1.8rem;">Portal Login</h2>
+        <p style="color:var(--text-light); font-size:0.9rem;">Select your role to continue</p>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('parent')">👨‍👩‍👧 Parent</button>
+        <button class="tab-btn" onclick="switchTab('teacher')">👩‍🏫 Teacher</button>
+        <button class="tab-btn" onclick="switchTab('admin')">🛡️ Admin</button>
+      </div>
+      <div class="tab-content active" id="tab-parent">
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="parent@email.com" /></div>
+        <div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" /></div>
+        <button class="btn btn-primary" style="width:100%; justify-content:center;">Login as Parent 👨‍👩‍👧</button>
+      </div>
+      <div class="tab-content" id="tab-teacher">
+        <div class="form-group"><label>Staff ID / Email</label><input type="text" placeholder="teacher@sunshinekids.edu" /></div>
+        <div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" /></div>
+        <button class="btn btn-teal" style="width:100%; justify-content:center;">Login as Teacher 👩‍🏫</button>
+      </div>
+      <div class="tab-content" id="tab-admin">
+        <div class="form-group"><label>Admin ID</label><input type="text" placeholder="admin@sunshinekids.edu" /></div>
+        <div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" /></div>
+        <button class="btn" style="background:linear-gradient(135deg, var(--purple), #6c3483); color:white; width:100%; justify-content:center;">Login as Admin 🛡️</button>
+      </div>
+      <p style="text-align:center; margin-top:1rem; font-size:0.85rem; color:var(--text-light);">Forgot password? <a href="#" style="color:var(--primary); font-weight:700;">Reset here</a></p>
+    </div>
+  </div>
+
+  <script>
+    // NAV TOGGLE
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    // MODAL
+    function openModal(id) { document.getElementById(id).classList.add('open'); }
+    function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+    document.querySelectorAll('.modal').forEach(m => {
+      m.addEventListener('click', function(e) {
+        if (e.target === this) this.classList.remove('open');
+      });
+    });
+
+    // TABS
+    function switchTab(role) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById('tab-' + role).classList.add('active');
+    }
+
+    // SMOOTH SCROLL
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href.length > 1) {
+          e.preventDefault();
+          document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

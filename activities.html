@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activities & Events – Sunshine Kids Preschool</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .activity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.5rem; }
+    .activity-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); }
+    .activity-card:hover { transform: translateY(-8px); }
+    .activity-img { height: 140px; display: flex; align-items: center; justify-content: center; font-size: 5rem; }
+    .activity-body { padding: 1.5rem; }
+    .activity-body h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+    .activity-body p { color: var(--text-light); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; }
+    .activity-meta { display: flex; gap: 1rem; font-size: 0.82rem; color: var(--text-light); font-weight: 600; }
+    .activity-meta span { display: flex; align-items: center; gap: 0.3rem; }
+
+    .events-calendar { display: grid; gap: 1rem; }
+    .cal-event { background: var(--white); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); display: grid; grid-template-columns: auto 1fr auto; gap: 1.5rem; align-items: center; transition: var(--transition); }
+    .cal-event:hover { transform: translateX(8px); }
+    .cal-date { background: var(--primary); color: white; border-radius: 15px; padding: 0.8rem 1rem; text-align: center; min-width: 70px; }
+    .cal-day { font-size: 1.8rem; font-weight: 900; line-height: 1; font-family: 'Fredoka One', cursive; }
+    .cal-month { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; }
+    .cal-info h4 { font-size: 1.05rem; margin-bottom: 0.3rem; }
+    .cal-info p { color: var(--text-light); font-size: 0.88rem; }
+    .cal-time { color: var(--secondary); font-weight: 700; font-size: 0.88rem; white-space: nowrap; }
+    .cal-badge { padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.78rem; font-weight: 700; white-space: nowrap; }
+
+    .parent-comm { background: linear-gradient(135deg, var(--primary), var(--orange)); border-radius: var(--radius); padding: 3rem; color: white; }
+    .comm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .comm-item { background: rgba(255,255,255,0.15); border-radius: var(--radius); padding: 1.5rem; text-align: center; }
+    .comm-item .ci { font-size: 2.5rem; margin-bottom: 0.8rem; }
+    .comm-item h4 { font-size: 1rem; margin-bottom: 0.4rem; }
+    .comm-item p { font-size: 0.85rem; opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo"><span class="logo-icon">☀️</span><span class="logo-text">Sunshine <span>Kids</span></span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+      <li><a href="admissions.html">Admissions</a></li><li><a href="classes.html">Classes</a></li>
+      <li><a href="teachers.html">Teachers</a></li>
+      <li><a href="activities.html" class="active">Activities</a></li>
+      <li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li>
+      <li><a href="#" class="nav-btn" onclick="openModal('loginModal')">Login</a></li>
+    </ul>
+    <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="page-hero" style="background: linear-gradient(135deg, #26de81 0%, #4ECDC4 100%);">
+    <h1>🎭 Activities & Events</h1>
+    <p>Every day is an adventure filled with creativity, fun, and discovery!</p>
+  </div>
+  <div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a> › Activities & Events</div></div>
+
+  <!-- REGULAR ACTIVITIES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">🌟 Regular Activities</span>
+        <h2>What We Do Every Week</h2>
+        <p>A rich variety of activities designed to nurture every dimension of your child's development.</p>
+      </div>
+      <div class="activity-grid">
+        <div class="activity-card">
+          <div class="activity-img" style="background: linear-gradient(135deg, #ffe0e0, #ffb3b3);">🎨</div>
+          <div class="activity-body">
+            <h3>Art & Craft</h3>
+            <p>Children explore painting, sculpting, collage, and mixed media to express their creativity and develop fine motor skills.</p>
+            <div class="activity-meta"><span>📅 Every Tuesday</span><span>⏱ 45 mins</span></div>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-img" style="background: linear-gradient(135deg, #e0f8ff, #b3e8ff);">🎵</div>
+          <div class="activity-body">
+            <h3>Music & Rhymes</h3>
+            <p>Songs, instruments, rhythms, and dance help children develop language, memory, coordination, and emotional expression.</p>
+            <div class="activity-meta"><span>📅 Mon & Thu</span><span>⏱ 30 mins</span></div>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-img" style="background: linear-gradient(135deg, #e8ffe0, #b3ffb3);">🌳</div>
+          <div class="activity-body">
+            <h3>Outdoor Play</h3>
+            <p>Structured playground time with climbing, running, and team games to build physical strength, agility, and social bonds.</p>
+            <div class="activity-meta"><span>📅 Daily</span><span>⏱ 30 mins</span></div>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-img" style="background: linear-gradient(135deg, #fff3e0, #ffd79e);">📖</div>
+          <div class="activity-body">
+            <h3>Story Time</h3>
+            <p>Interactive storytelling sessions that build vocabulary, imagination, listening skills, and a lifelong love of books and reading.</p>
+            <div class="activity-meta"><span>📅 Every Friday</span><span>⏱ 30 mins</span></div>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-img" style="background: linear-gradient(135deg, #f3e0ff, #d9b3ff);">🧪</div>
+          <div class="activity-body">
+            <h3>Science Experiments</h3>
+            <p>Fun, safe experiments introduce scientific thinking. Children discover, question, and explore the world around them with wonder.</p>
+            <div class="activity-meta"><span>📅 Every Wednesday</span><span>⏱ 45 mins</span></div>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-img" style="background: linear-gradient(135deg, #e0fff3, #b3ffd9);">🧘</div>
+          <div class="activity-body">
+            <h3>Yoga & Mindfulness</h3>
+            <p>Age-appropriate yoga poses and breathing exercises help children develop focus, calm, body awareness, and emotional regulation.</p>
+            <div class="activity-meta"><span>📅 Every Friday</span><span>⏱ 20 mins</span></div>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-img" style="background: linear-gradient(135deg, #fff0e0, #ffd6a5);">💻</div>
+          <div class="activity-body">
+            <h3>Computer Basics</h3>
+            <p>Introduction to digital literacy through educational games and activities designed for young learners (Jr. KG & Sr. KG only).</p>
+            <div class="activity-meta"><span>📅 Every Tuesday</span><span>⏱ 30 mins</span></div>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-img" style="background: linear-gradient(135deg, #ffe0f0, #ffb3d9);">🎭</div>
+          <div class="activity-body">
+            <h3>Drama & Role Play</h3>
+            <p>Imaginative play and drama activities build confidence, communication, empathy, and creative thinking through storytelling.</p>
+            <div class="activity-meta"><span>📅 Every Thursday</span><span>⏱ 45 mins</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPCOMING EVENTS CALENDAR -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">📅 Events Calendar</span>
+        <h2>Upcoming Events – 2025</h2>
+        <p>Mark your calendars! Exciting events await throughout the year.</p>
+      </div>
+      <div class="events-calendar">
+        <div class="cal-event">
+          <div class="cal-date" style="background:var(--primary);"><div class="cal-day">30</div><div class="cal-month">Apr</div></div>
+          <div class="cal-info"><h4>Parent-Teacher Meeting</h4><p>Quarterly progress discussion for all classes. All parents are requested to attend.</p><div style="margin-top:0.4rem; font-size:0.85rem; color:var(--text-light);">📍 School Hall | 👥 All Parents</div></div>
+          <span class="cal-badge badge-blue">🕐 10 AM – 1 PM</span>
+        </div>
+        <div class="cal-event">
+          <div class="cal-date" style="background:var(--secondary);"><div class="cal-day">05</div><div class="cal-month">May</div></div>
+          <div class="cal-info"><h4>🎨 Art & Craft Competition</h4><p>Annual creativity showcase. Students display their artwork and compete for prizes across all age groups.</p><div style="margin-top:0.4rem; font-size:0.85rem; color:var(--text-light);">📍 Art Studio | 👥 All Students</div></div>
+          <span class="cal-badge badge-green">🕐 9 AM – 12 PM</span>
+        </div>
+        <div class="cal-event">
+          <div class="cal-date" style="background:var(--purple);"><div class="cal-day">15</div><div class="cal-month">May</div></div>
+          <div class="cal-info"><h4>🌟 Annual Day Celebration</h4><p>Cultural performances, prize distribution, and awards ceremony. A grand event for the whole family!</p><div style="margin-top:0.4rem; font-size:0.85rem; color:var(--text-light);">📍 School Auditorium | 👥 All Families</div></div>
+          <span class="cal-badge" style="background:#ede9fe; color:var(--purple);">🕐 5 PM – 8 PM</span>
+        </div>
+        <div class="cal-event">
+          <div class="cal-date" style="background:var(--orange);"><div class="cal-day">20</div><div class="cal-month">May</div></div>
+          <div class="cal-info"><h4>🏕️ Summer Camp Begins</h4><p>Fun-filled 3-week summer camp with swimming, art, cooking, science, and adventure activities.</p><div style="margin-top:0.4rem; font-size:0.85rem; color:var(--text-light);">📍 School Campus | 👥 Enrolled Students</div></div>
+          <span class="cal-badge badge-red">🕐 9 AM – 1 PM</span>
+        </div>
+        <div class="cal-event">
+          <div class="cal-date" style="background:var(--green);"><div class="cal-day">01</div><div class="cal-month">Jun</div></div>
+          <div class="cal-info"><h4>🌍 Environment Day Activities</h4><p>Tree planting, poster making, and eco-awareness sessions to teach children about nature and responsibility.</p><div style="margin-top:0.4rem; font-size:0.85rem; color:var(--text-light);">📍 School Garden | 👥 All Students</div></div>
+          <span class="cal-badge badge-green">🕐 9 AM – 11 AM</span>
+        </div>
+        <div class="cal-event">
+          <div class="cal-date" style="background:#0984e3;"><div class="cal-day">15</div><div class="cal-month">Jun</div></div>
+          <div class="cal-info"><h4>🎒 New Academic Year Begins</h4><p>Welcome back! Orientation day for new students and parents. Meet your teachers and explore the campus.</p><div style="margin-top:0.4rem; font-size:0.85rem; color:var(--text-light);">📍 All Classrooms | 👥 New Students & Parents</div></div>
+          <span class="cal-badge badge-blue">🕐 9 AM – 12 PM</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARENT COMMUNICATION -->
+  <section class="section">
+    <div class="container">
+      <div class="parent-comm">
+        <h2>📱 Stay Connected with Us</h2>
+        <p style="opacity:0.9; margin-bottom:0;">We keep parents informed and involved every step of the way through multiple communication channels.</p>
+        <div class="comm-grid">
+          <div class="comm-item"><div class="ci">📱</div><h4>Parent App</h4><p>Daily updates, homework, attendance and reports on our parent portal app.</p></div>
+          <div class="comm-item"><div class="ci">📧</div><h4>Email Newsletters</h4><p>Weekly newsletters with activity highlights, notices, and upcoming events.</p></div>
+          <div class="comm-item"><div class="ci">💬</div><h4>WhatsApp Groups</h4><p>Class-wise parent groups for quick communication and community building.</p></div>
+          <div class="comm-item"><div class="ci">📅</div><h4>PTM Meetings</h4><p>Quarterly one-on-one parent-teacher meetings to discuss your child's progress.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="logo"><span class="logo-icon">☀️</span><span class="logo-text">Sunshine <span style="color:var(--secondary);">Kids</span></span></div><p>Nurturing little minds since 2010.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="admissions.html">Admissions</a></li><li><a href="classes.html">Classes</a></li></ul></div>
+        <div class="footer-col"><h4>Programs</h4><ul><li><a href="classes.html">Playgroup</a></li><li><a href="classes.html">Nursery</a></li><li><a href="classes.html">Junior KG</a></li><li><a href="classes.html">Senior KG</a></li></ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul><li><a href="#">📍 123 School Lane</a></li><li><a href="#">📞 +91 98765 43210</a></li><li><a href="#">✉️ info@sunshinekids.edu</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 Sunshine Kids Preschool. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <div class="modal" id="loginModal">
+    <div class="modal-box">
+      <span class="modal-close" onclick="closeModal('loginModal')">✕</span>
+      <div style="text-align:center;margin-bottom:1.5rem;"><div style="font-size:3rem;">🔐</div><h2>Portal Login</h2></div>
+      <div class="tabs"><button class="tab-btn active" onclick="switchTab('parent')">👨‍👩‍👧 Parent</button><button class="tab-btn" onclick="switchTab('teacher')">👩‍🏫 Teacher</button><button class="tab-btn" onclick="switchTab('admin')">🛡️ Admin</button></div>
+      <div class="tab-content active" id="tab-parent"><div class="form-group"><label>Email</label><input type="email" placeholder="parent@email.com" /></div><div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" /></div><button class="btn btn-primary" style="width:100%;justify-content:center;">Login as Parent</button></div>
+      <div class="tab-content" id="tab-teacher"><div class="form-group"><label>Staff ID</label><input type="text" /></div><div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" /></div><button class="btn btn-teal" style="width:100%;justify-content:center;">Login as Teacher</button></div>
+      <div class="tab-content" id="tab-admin"><div class="form-group"><label>Admin ID</label><input type="text" /></div><div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" /></div><button class="btn" style="background:linear-gradient(135deg,var(--purple),#6c3483);color:white;width:100%;justify-content:center;">Login as Admin</button></div>
+    </div>
+  </div>
+  <script>
+    function openModal(id){document.getElementById(id).classList.add('open');}
+    function closeModal(id){document.getElementById(id).classList.remove('open');}
+    function switchTab(role){document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));event.target.classList.add('active');document.getElementById('tab-'+role).classList.add('active');}
+    document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');}));
+  </script>
+</body>
+</html>

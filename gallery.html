@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery – Sunshine Kids Preschool</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .filter-bar { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .filter-btn { padding: 0.5rem 1.4rem; border-radius: 25px; border: 2px solid var(--primary); background: transparent; color: var(--primary); font-family: 'Nunito', sans-serif; font-weight: 700; cursor: pointer; transition: var(--transition); font-size: 0.9rem; }
+    .filter-btn.active, .filter-btn:hover { background: var(--primary); color: var(--white); }
+
+    .masonry { columns: 4; column-gap: 1rem; }
+    .masonry-item { break-inside: avoid; margin-bottom: 1rem; border-radius: var(--radius); overflow: hidden; cursor: pointer; position: relative; display: block; }
+    .masonry-item .gbox { width: 100%; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 4rem; transition: var(--transition); position: relative; overflow: hidden; }
+    .masonry-item:hover .gbox { transform: scale(1.03); }
+    .gbox-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0); display: flex; flex-direction: column; align-items: center; justify-content: center; transition: var(--transition); }
+    .masonry-item:hover .gbox-overlay { background: rgba(0,0,0,0.45); }
+    .gbox-label { color: white; font-weight: 700; font-size: 0.9rem; opacity: 0; transition: var(--transition); transform: translateY(10px); }
+    .masonry-item:hover .gbox-label { opacity: 1; transform: translateY(0); }
+    .gbox-zoom { color: white; font-size: 1.5rem; opacity: 0; transition: var(--transition) 0.05s; }
+    .masonry-item:hover .gbox-zoom { opacity: 1; }
+
+    /* Lightbox */
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 3000; background: rgba(0,0,0,0.92); align-items: center; justify-content: center; }
+    .lightbox.open { display: flex; }
+    .lb-content { background: white; border-radius: 30px; padding: 2.5rem; max-width: 600px; width: 90%; text-align: center; position: relative; }
+    .lb-close { position: absolute; top: 1rem; right: 1.5rem; font-size: 1.5rem; cursor: pointer; color: var(--text-light); }
+    .lb-close:hover { color: var(--primary); }
+    .lb-img { font-size: 8rem; margin-bottom: 1rem; }
+    .lb-title { font-size: 1.4rem; margin-bottom: 0.3rem; }
+    .lb-desc { color: var(--text-light); font-size: 0.95rem; }
+
+    @media (max-width: 900px) { .masonry { columns: 3; } }
+    @media (max-width: 600px) { .masonry { columns: 2; } }
+    @media (max-width: 400px) { .masonry { columns: 1; } }
+
+    .gallery-stats { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .gstat { text-align: center; }
+    .gstat-num { font-size: 2.5rem; font-family: 'Fredoka One', cursive; color: var(--primary); }
+    .gstat-label { font-size: 0.9rem; color: var(--text-light); font-weight: 600; }
+
+    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .video-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); }
+    .video-card:hover { transform: translateY(-6px); }
+    .video-thumb { height: 180px; display: flex; align-items: center; justify-content: center; font-size: 4rem; position: relative; cursor: pointer; }
+    .play-btn { position: absolute; width: 60px; height: 60px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: var(--transition); }
+    .video-thumb:hover .play-btn { transform: scale(1.15); background: var(--primary); color: white; }
+    .video-info { padding: 1.2rem; }
+    .video-info h4 { font-size: 1rem; margin-bottom: 0.3rem; }
+    .video-info p { color: var(--text-light); font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo"><span class="logo-icon">☀️</span><span class="logo-text">Sunshine <span>Kids</span></span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+      <li><a href="admissions.html">Admissions</a></li><li><a href="classes.html">Classes</a></li>
+      <li><a href="teachers.html">Teachers</a></li><li><a href="activities.html">Activities</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" class="nav-btn" onclick="openModal('loginModal')">Login</a></li>
+    </ul>
+    <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="page-hero" style="background: linear-gradient(135deg, #FF9F43 0%, #FFE66D 100%); color: var(--text);">
+    <h1>📸 Our Gallery</h1>
+    <p>Moments of joy, learning, and laughter captured forever</p>
+  </div>
+  <div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a> › Gallery</div></div>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- STATS -->
+      <div class="gallery-stats">
+        <div class="gstat"><div class="gstat-num">500+</div><div class="gstat-label">Photos</div></div>
+        <div class="gstat"><div class="gstat-num">50+</div><div class="gstat-label">Events Captured</div></div>
+        <div class="gstat"><div class="gstat-num">15</div><div class="gstat-label">Years of Memories</div></div>
+        <div class="gstat"><div class="gstat-num">20+</div><div class="gstat-label">Albums</div></div>
+      </div>
+
+      <!-- FILTER -->
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterGallery('all', this)">🌈 All</button>
+        <button class="filter-btn" onclick="filterGallery('classroom', this)">📚 Classroom</button>
+        <button class="filter-btn" onclick="filterGallery('art', this)">🎨 Art & Craft</button>
+        <button class="filter-btn" onclick="filterGallery('events', this)">🎉 Events</button>
+        <button class="filter-btn" onclick="filterGallery('outdoor', this)">🌳 Outdoor</button>
+        <button class="filter-btn" onclick="filterGallery('sports', this)">🏃 Sports</button>
+        <button class="filter-btn" onclick="filterGallery('music', this)">🎵 Music</button>
+      </div>
+
+      <!-- MASONRY GALLERY -->
+      <div class="masonry" id="galleryGrid">
+        <div class="masonry-item" data-cat="art" onclick="openLightbox('🎨','Art Class Fun','Children creating beautiful masterpieces in our fully equipped art studio.')">
+          <div class="gbox" style="height:200px; background: linear-gradient(135deg,#ffe0e0,#ffb3b3);">🎨<div class="gbox-overlay"><div class="gbox-zoom">🔍</div><div class="gbox-label">Art Class</div></div></div>
+        </div>
+        <div class="masonry-item" data-cat="music" onclick="openLightbox('🎵','Music & Movement','Little musicians learning rhythm, beats, and the joy of music.')">
+          <div class="gbox" style="height:260px; background: linear-gradient(135deg,#e0f8ff,#b3e8ff);">🎵<div class="gbox-overlay"><div class="gbox-zoom">🔍</div><div class="gbox-label">Music Time</div></div></div>
+        </div>
+        <div class="masonry-item" data-cat="outdoor" onclick="openLightbox('🌳','Outdoor Exploration','Kids discovering nature, insects, and the great outdoors.')">
+          <div class="gbox" style="height:180px; background: linear-gradient(135deg,#e8ffe0,#b3ffb3);">🌳<div class="gbox-overlay"><div class="gbox-zoom">🔍</div><div class="gbox-label">Nature Walk</div></div></div>
+        </div>
+        <div class="masonry-item" data-cat="events" onclick="openLightbox('🎉','Annual Day 2024','Students performing on stage at our grand Annual Day celebration.')">
+          <div class="gbox" style="height:220px; background: linear-gradient(135deg,#f3e0ff,#d9b3ff);">🎉<div class="gbox-overlay"><div class="gbox-zoom">🔍</div><div class="gbox-label">Annual Day</div></div></div>
+        </div>
+        <div class="masonry-item" data-cat="classroom" onclick="openLightbox('📚','Story Hour','Our beloved teacher reading stories to wide-eyed, engaged little listeners.')">
+          <div class="gbox" style="height:240px; background: linear-gradient(135deg,#fff3e0,#ffd79e);">📚<div class="gbox-overlay"><div class="gbox-zoom">🔍</div><div class="gbox-label">Story Hour</div></div></div>
+        </div>
+        <div class="masonry-item" data-cat="sports" onclick="openLightbox('🏃','Sports Day 2024','Children racing, jumping, and competing with great spirit at Sports Day.')">
+          <div class="gbox" style="height:190px; background: linear-gradient(135deg,#e0fff3,#b3ffd9);">🏃<div class="gbox-overlay"><div class="gbox-zoom">🔍</div><div class="gbox-label">Sports Day</div></div></div>
+        </div>
+        <div class="masonry-item" data-cat="art" onclick="openLightbox('🖼️','Craft Exhibition','Beautiful craft projects displayed at the annual art and craft exhibition.')">
+          <div class="gbox" style="height:210px; background: linear-gradient(135deg,#ffe0f0,#ffb3d9);">🖼️<div class="gbox-overlay"><div class="gbox-zoom">🔍</div><div class="gbox-label">Art Exhibition</div></div></div>
+        </div>
+        <div class="masonry-item" data-cat="classroom" onclick="openLightbox('🔢','Math Fun','Making numbers exciting with colourful manipulatives and hands-on activities.')">
+          <div class="gbox" style="height:170px; background: linear-gradient(135deg,#e0e8ff,#b3c5ff);">🔢<div class="gbox-overlay"><div class="gbox-zoom">🔍</div><div class="gbox-label">Math Class</div></div></div>
+        </div>
+        <div class="masonry-item" data-cat="events" onclick="openLightbox('🎪','Fancy Dress','Adorable children dressed up for our popular Fancy Dress competition.')">
+          <div class="gbox" style="height:250px; background: linear-gradient(135deg,#fff8e0,#ffe8a0);">🎪<div class="gbox-overlay"><div class="gbox-zoom">🔍</div><div class="gbox-label">Fancy Dress</div></div></div>
+        </div>
+        <div class="masonry-item" data-cat="outdoor" onclick="openLightbox('🛝','Playground Fun','Happy children enjoying our safe, colourful playground equipment.')">
+          <div class="gbox" style="height:195px; background: linear-gradient(135deg,#ffe8d0,#ffc680);">🛝<div class="gbox-overlay"><div class="gbox-zoom">🔍</div><div class="gbox-label">Playground</div></div></div>
+        </div>
+        <div class="masonry-item" data-cat="music" onclick="openLightbox('💃','Dance Performance','Energetic dance performances at our Annual Day by talented young dancers.')">
+          <div class="gbox" style="height:230px; background: linear-gradient(135deg,#d0f0ff,#80d8ff);">💃<div class="gbox-overlay"><div class="gbox-zoom">🔍</div><div class="gbox-label">Dance Show</div></div></div>
+        </div>
+        <div class="masonry-item" data-cat="classroom" onclick="openLightbox('🧪','Science Discovery','Little scientists exploring and experimenting in our weekly science sessions.')">
+          <div class="gbox" style="height:185px; background: linear-gradient(135deg,#d0ffe8,#80ffb3);">🧪<div class="gbox-overlay"><div class="gbox-zoom">🔍</div><div class="gbox-label">Science Lab</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO SECTION -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">🎬 Video Highlights</span>
+        <h2>See Our School in Action</h2>
+      </div>
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-thumb" style="background: linear-gradient(135deg,#ffe0e0,#ffb3b3);">🏫<div class="play-btn">▶</div></div>
+          <div class="video-info"><h4>School Campus Tour</h4><p>A walkthrough of our beautiful facilities and classrooms</p></div>
+        </div>
+        <div class="video-card">
+          <div class="video-thumb" style="background: linear-gradient(135deg,#e0f8ff,#b3e8ff);">🌟<div class="play-btn">▶</div></div>
+          <div class="video-info"><h4>Annual Day 2024 Highlights</h4><p>Best moments from our spectacular Annual Day celebration</p></div>
+        </div>
+        <div class="video-card">
+          <div class="video-thumb" style="background: linear-gradient(135deg,#f3e0ff,#d9b3ff);">🎨<div class="play-btn">▶</div></div>
+          <div class="video-info"><h4>A Day in the Life</h4><p>Follow a typical fun-filled day at Sunshine Kids Preschool</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+    <div class="lb-content">
+      <span class="lb-close" onclick="closeLightbox()">✕</span>
+      <div class="lb-img" id="lbImg">🎨</div>
+      <h3 class="lb-title" id="lbTitle">Title</h3>
+      <p class="lb-desc" id="lbDesc">Description</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="logo"><span class="logo-icon">☀️</span><span class="logo-text">Sunshine <span style="color:var(--secondary);">Kids</span></span></div><p>Nurturing little minds since 2010.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="admissions.html">Admissions</a></li><li><a href="classes.html">Classes</a></li></ul></div>
+        <div class="footer-col"><h4>Programs</h4><ul><li><a href="classes.html">Playgroup</a></li><li><a href="classes.html">Nursery</a></li><li><a href="classes.html">Junior KG</a></li><li><a href="classes.html">Senior KG</a></li></ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul><li><a href="#">📍 123 School Lane</a></li><li><a href="#">📞 +91 98765 43210</a></li><li><a href="#">✉️ info@sunshinekids.edu</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 Sunshine Kids Preschool. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <div class="modal" id="loginModal">
+    <div class="modal-box">
+      <span class="modal-close" onclick="closeModal('loginModal')">✕</span>
+      <div style="text-align:center;margin-bottom:1.5rem;"><div style="font-size:3rem;">🔐</div><h2>Portal Login</h2></div>
+      <div class="tabs"><button class="tab-btn active" onclick="switchTab('parent')">👨‍👩‍👧 Parent</button><button class="tab-btn" onclick="switchTab('teacher')">👩‍🏫 Teacher</button><button class="tab-btn" onclick="switchTab('admin')">🛡️ Admin</button></div>
+      <div class="tab-content active" id="tab-parent"><div class="form-group"><label>Email</label><input type="email" placeholder="parent@email.com" /></div><div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" /></div><button class="btn btn-primary" style="width:100%;justify-content:center;">Login as Parent</button></div>
+      <div class="tab-content" id="tab-teacher"><div class="form-group"><label>Staff ID</label><input type="text" /></div><div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" /></div><button class="btn btn-teal" style="width:100%;justify-content:center;">Login as Teacher</button></div>
+      <div class="tab-content" id="tab-admin"><div class="form-group"><label>Admin ID</label><input type="text" /></div><div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" /></div><button class="btn" style="background:linear-gradient(135deg,var(--purple),#6c3483);color:white;width:100%;justify-content:center;">Login as Admin</button></div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id){document.getElementById(id).classList.add('open');}
+    function closeModal(id){document.getElementById(id).classList.remove('open');}
+    function switchTab(role){document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));event.target.classList.add('active');document.getElementById('tab-'+role).classList.add('active');}
+    document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');}));
+
+    function filterGallery(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.masonry-item').forEach(item => {
+        if (cat === 'all' || item.dataset.cat === cat) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function openLightbox(img, title, desc) {
+      document.getElementById('lbImg').textContent = img;
+      document.getElementById('lbTitle').textContent = title;
+      document.getElementById('lbDesc').textContent = desc;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+  </script>
+</body>
+</html>

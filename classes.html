@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classes & Programs – Sunshine Kids Preschool</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .program-card { border-radius: 25px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); }
+    .program-card:hover { transform: translateY(-10px); }
+    .program-header { padding: 2.5rem 2rem; color: white; position: relative; overflow: hidden; }
+    .program-header::after { content: attr(data-emoji); position: absolute; right: -10px; bottom: -20px; font-size: 7rem; opacity: 0.2; }
+    .program-header h3 { font-size: 1.8rem; margin-bottom: 0.3rem; }
+    .program-header .age { font-size: 1rem; opacity: 0.9; }
+    .program-body { background: white; padding: 2rem; }
+    .program-body p { color: var(--text-light); line-height: 1.7; margin-bottom: 1.5rem; }
+    .subject-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .subject-pill { background: var(--bg); padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+    .program-details { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 1.5rem; }
+    .detail-item { background: var(--bg); border-radius: 10px; padding: 0.8rem; text-align: center; }
+    .detail-item .di-label { font-size: 0.75rem; color: var(--text-light); }
+    .detail-item .di-val { font-weight: 700; font-size: 0.95rem; }
+
+    .schedule-table { width: 100%; border-collapse: collapse; }
+    .schedule-table th { background: var(--bg); padding: 0.8rem; font-size: 0.9rem; }
+    .schedule-table td { padding: 0.8rem; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; color: var(--text-light); }
+    .schedule-table td:first-child { font-weight: 700; color: var(--text); }
+
+    .curriculum-banner { background: linear-gradient(135deg, var(--primary), var(--orange)); border-radius: var(--radius); padding: 3rem; color: white; text-align: center; }
+    .curriculum-banner h2 { font-size: 2rem; margin-bottom: 1rem; }
+    .curriculum-pills { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin-top: 1.5rem; }
+    .curriculum-pill { background: rgba(255,255,255,0.2); padding: 0.5rem 1.2rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo"><span class="logo-icon">☀️</span><span class="logo-text">Sunshine <span>Kids</span></span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+      <li><a href="admissions.html">Admissions</a></li>
+      <li><a href="classes.html" class="active">Classes</a></li><li><a href="teachers.html">Teachers</a></li>
+      <li><a href="activities.html">Activities</a></li><li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" class="nav-btn" onclick="openModal('loginModal')">Login</a></li>
+    </ul>
+    <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="page-hero" style="background: linear-gradient(135deg, var(--orange) 0%, var(--accent) 100%); color: var(--text);">
+    <h1>📚 Our Classes & Programs</h1>
+    <p>Age-appropriate programs designed to nurture, inspire, and ignite a love of learning</p>
+  </div>
+  <div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a> › Classes</div></div>
+
+  <!-- PROGRAMS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">🎓 Programs</span>
+        <h2>A Perfect Program for Every Age</h2>
+        <p>Each program is tailored to meet the developmental needs of children at their specific stage of growth.</p>
+      </div>
+      <div class="cards-grid">
+
+        <!-- PLAYGROUP -->
+        <div class="program-card">
+          <div class="program-header" data-emoji="👶" style="background: linear-gradient(135deg, #FF6B6B, #FF9F43);">
+            <h3>👶 Playgroup</h3>
+            <div class="age">Age: 2 – 3 Years</div>
+          </div>
+          <div class="program-body">
+            <p>A gentle introduction to structured learning through play, songs, and sensory exploration. We help toddlers transition from home to a social environment with love and patience.</p>
+            <div class="program-details">
+              <div class="detail-item"><div class="di-label">Duration</div><div class="di-val">3 hours/day</div></div>
+              <div class="detail-item"><div class="di-label">Class Size</div><div class="di-val">Max 15 kids</div></div>
+              <div class="detail-item"><div class="di-label">Days</div><div class="di-val">Mon – Fri</div></div>
+              <div class="detail-item"><div class="di-label">Timing</div><div class="di-val">9 AM – 12 PM</div></div>
+            </div>
+            <div class="subject-pills">
+              <span class="subject-pill">🎵 Rhymes & Songs</span>
+              <span class="subject-pill">🎨 Sensory Play</span>
+              <span class="subject-pill">📖 Storytelling</span>
+              <span class="subject-pill">🌿 Outdoor Play</span>
+              <span class="subject-pill">🤝 Social Skills</span>
+            </div>
+            <a href="admissions.html" class="btn btn-primary" style="width:100%; justify-content:center;">Enroll Now →</a>
+          </div>
+        </div>
+
+        <!-- NURSERY -->
+        <div class="program-card">
+          <div class="program-header" data-emoji="🧒" style="background: linear-gradient(135deg, #4ECDC4, #26de81);">
+            <h3>🧒 Nursery</h3>
+            <div class="age">Age: 3 – 4 Years</div>
+          </div>
+          <div class="program-body">
+            <p>Building on social readiness with early literacy and numeracy concepts. Children develop language skills, curiosity, and confidence through hands-on activities and creative play.</p>
+            <div class="program-details">
+              <div class="detail-item"><div class="di-label">Duration</div><div class="di-val">4 hours/day</div></div>
+              <div class="detail-item"><div class="di-label">Class Size</div><div class="di-val">Max 20 kids</div></div>
+              <div class="detail-item"><div class="di-label">Days</div><div class="di-val">Mon – Fri</div></div>
+              <div class="detail-item"><div class="di-label">Timing</div><div class="di-val">9 AM – 1 PM</div></div>
+            </div>
+            <div class="subject-pills">
+              <span class="subject-pill">🔤 Pre-Reading</span>
+              <span class="subject-pill">🔢 Pre-Math</span>
+              <span class="subject-pill">🎨 Art & Craft</span>
+              <span class="subject-pill">💃 Movement</span>
+              <span class="subject-pill">🌍 EVS Basics</span>
+            </div>
+            <a href="admissions.html" class="btn btn-teal" style="width:100%; justify-content:center;">Enroll Now →</a>
+          </div>
+        </div>
+
+        <!-- JR KG -->
+        <div class="program-card">
+          <div class="program-header" data-emoji="📖" style="background: linear-gradient(135deg, #A855F7, #6c3483);">
+            <h3>📖 Junior KG</h3>
+            <div class="age">Age: 4 – 5 Years</div>
+          </div>
+          <div class="program-body">
+            <p>Structured academic foundation with reading readiness, phonics, number concepts, and creative arts. Children develop critical thinking, problem-solving, and communication skills.</p>
+            <div class="program-details">
+              <div class="detail-item"><div class="di-label">Duration</div><div class="di-val">5 hours/day</div></div>
+              <div class="detail-item"><div class="di-label">Class Size</div><div class="di-val">Max 25 kids</div></div>
+              <div class="detail-item"><div class="di-label">Days</div><div class="di-val">Mon – Sat</div></div>
+              <div class="detail-item"><div class="di-label">Timing</div><div class="di-val">8:30 AM – 1:30 PM</div></div>
+            </div>
+            <div class="subject-pills">
+              <span class="subject-pill">🔤 Phonics</span>
+              <span class="subject-pill">🔢 Numbers 1–50</span>
+              <span class="subject-pill">🖊️ Writing</span>
+              <span class="subject-pill">🌿 EVS</span>
+              <span class="subject-pill">💻 Computers</span>
+            </div>
+            <a href="admissions.html" class="btn" style="background:linear-gradient(135deg,var(--purple),#6c3483); color:white; width:100%; justify-content:center;">Enroll Now →</a>
+          </div>
+        </div>
+
+        <!-- SR KG -->
+        <div class="program-card">
+          <div class="program-header" data-emoji="🎒" style="background: linear-gradient(135deg, #FF9F43, #FFE66D);">
+            <h3>🎒 Senior KG</h3>
+            <div class="age">Age: 5 – 6 Years</div>
+          </div>
+          <div class="program-body">
+            <p>School-readiness program preparing children for primary school. Advanced reading, writing, mathematics, science experiments, and leadership activities build confidence and independence.</p>
+            <div class="program-details">
+              <div class="detail-item"><div class="di-label">Duration</div><div class="di-val">5.5 hours/day</div></div>
+              <div class="detail-item"><div class="di-label">Class Size</div><div class="di-val">Max 25 kids</div></div>
+              <div class="detail-item"><div class="di-label">Days</div><div class="di-val">Mon – Sat</div></div>
+              <div class="detail-item"><div class="di-label">Timing</div><div class="di-val">8 AM – 1:30 PM</div></div>
+            </div>
+            <div class="subject-pills">
+              <span class="subject-pill">📖 Reading</span>
+              <span class="subject-pill">🔢 Math</span>
+              <span class="subject-pill">🧪 Science</span>
+              <span class="subject-pill">🌍 Social Studies</span>
+              <span class="subject-pill">🎭 Drama</span>
+            </div>
+            <a href="admissions.html" class="btn" style="background:linear-gradient(135deg,var(--orange),var(--accent)); color:var(--text); width:100%; justify-content:center;">Enroll Now →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM APPROACH -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="curriculum-banner">
+        <h2>🌱 Our Curriculum Approach</h2>
+        <p>Rooted in internationally recognized early childhood education frameworks, our curriculum balances structured learning with free exploration.</p>
+        <div class="curriculum-pills">
+          <span class="curriculum-pill">🎮 Play-Based Learning</span>
+          <span class="curriculum-pill">📊 EYFS Framework</span>
+          <span class="curriculum-pill">🧠 Multiple Intelligences</span>
+          <span class="curriculum-pill">🌍 Montessori Elements</span>
+          <span class="curriculum-pill">🎨 Project-Based Activities</span>
+          <span class="curriculum-pill">💬 Language Immersion</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMETABLE -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">🕐 Sample Schedule</span>
+        <h2>A Typical Day at Sunshine Kids</h2>
+        <p>Structured yet flexible — every day is an adventure!</p>
+      </div>
+      <div style="max-width:700px; margin:0 auto; background:white; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);">
+        <table class="schedule-table">
+          <thead><tr><th>⏰ Time</th><th>📅 Activity</th></tr></thead>
+          <tbody>
+            <tr><td>8:30 – 9:00 AM</td><td>🌅 Morning Arrival & Free Play</td></tr>
+            <tr><td>9:00 – 9:15 AM</td><td>🎵 Morning Circle & Rhymes</td></tr>
+            <tr><td>9:15 – 10:00 AM</td><td>📖 Language / Literacy Time</td></tr>
+            <tr><td>10:00 – 10:45 AM</td><td>🔢 Math & Thinking Activities</td></tr>
+            <tr><td>10:45 – 11:15 AM</td><td>🍎 Snack & Hygiene Time</td></tr>
+            <tr><td>11:15 AM – 12:00 PM</td><td>🎨 Art, Craft & Creativity</td></tr>
+            <tr><td>12:00 – 12:30 PM</td><td>🌳 Outdoor Play & Exercise</td></tr>
+            <tr><td>12:30 – 1:00 PM</td><td>📚 Story Time / Show & Tell</td></tr>
+            <tr><td>1:00 – 1:30 PM</td><td>🏠 Pack Up & Dismissal</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="logo"><span class="logo-icon">☀️</span><span class="logo-text">Sunshine <span style="color:var(--secondary);">Kids</span></span></div><p>Nurturing little minds since 2010.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="admissions.html">Admissions</a></li><li><a href="classes.html">Classes</a></li></ul></div>
+        <div class="footer-col"><h4>Programs</h4><ul><li><a href="#">Playgroup</a></li><li><a href="#">Nursery</a></li><li><a href="#">Junior KG</a></li><li><a href="#">Senior KG</a></li></ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul><li><a href="#">📍 123 School Lane</a></li><li><a href="#">📞 +91 98765 43210</a></li><li><a href="#">✉️ info@sunshinekids.edu</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 Sunshine Kids Preschool. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <div class="modal" id="loginModal">
+    <div class="modal-box">
+      <span class="modal-close" onclick="closeModal('loginModal')">✕</span>
+      <div style="text-align:center;margin-bottom:1.5rem;"><div style="font-size:3rem;">🔐</div><h2>Portal Login</h2></div>
+      <div class="tabs"><button class="tab-btn active" onclick="switchTab('parent')">👨‍👩‍👧 Parent</button><button class="tab-btn" onclick="switchTab('teacher')">👩‍🏫 Teacher</button><button class="tab-btn" onclick="switchTab('admin')">🛡️ Admin</button></div>
+      <div class="tab-content active" id="tab-parent"><div class="form-group"><label>Email</label><input type="email" placeholder="parent@email.com" /></div><div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" /></div><button class="btn btn-primary" style="width:100%;justify-content:center;">Login as Parent</button></div>
+      <div class="tab-content" id="tab-teacher"><div class="form-group"><label>Staff ID</label><input type="text" placeholder="teacher@sunshinekids.edu" /></div><div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" /></div><button class="btn btn-teal" style="width:100%;justify-content:center;">Login as Teacher</button></div>
+      <div class="tab-content" id="tab-admin"><div class="form-group"><label>Admin ID</label><input type="text" placeholder="admin@sunshinekids.edu" /></div><div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" /></div><button class="btn" style="background:linear-gradient(135deg,var(--purple),#6c3483);color:white;width:100%;justify-content:center;">Login as Admin</button></div>
+    </div>
+  </div>
+  <script>
+    function openModal(id){document.getElementById(id).classList.add('open');}
+    function closeModal(id){document.getElementById(id).classList.remove('open');}
+    function switchTab(role){document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));event.target.classList.add('active');document.getElementById('tab-'+role).classList.add('active');}
+    document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');}));
+  </script>
+</body>
+</html>
