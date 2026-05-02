@@ -160,14 +160,21 @@ const Students = () => {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Class</label>
-                    <input 
-                      className="admin-input" 
-                      value={formData.class} 
-                      onChange={(e) => setFormData({...formData, class: e.target.value})} 
-                      required 
-                    />
-                  </div>
+                  <label>Class</label>
+                  <select 
+                    className="admin-input" 
+                    value={formData.class} 
+                    onChange={(e) => setFormData({...formData, class: e.target.value})} 
+                    required 
+                  >
+                    <option value="">Select Class</option>
+                    <option value="Playgroup">Playgroup</option>
+                    <option value="Nursery">Nursery</option>
+                    <option value="Junior KG">Junior KG</option>
+                    <option value="Senior KG">Senior KG</option>
+                    <option value="Summer Camp">Summer Camp</option>
+                  </select>
+                </div>
                   <div className="form-group">
                     <label>Status</label>
                     <select 

@@ -1,7 +1,7 @@
 const INITIAL_DATA = {
   students: [
-    { id: 'ST1001', name: 'Aarav Sharma', class: 'Nursery A', parent: 'Rajesh Sharma', status: 'Active', email: 'aarav@example.com', mobile: '9876543210', emergency: '' },
-    { id: 'ST1002', name: 'Priya Patel', class: 'LKG B', parent: 'Suresh Patel', status: 'Active', email: 'priya@example.com', mobile: '9876543211', emergency: '9876543212' },
+    { id: 'ST1001', name: 'Aarav Sharma', class: 'Nursery', parent: 'Rajesh Sharma', status: 'Active', email: 'aarav@example.com', mobile: '9876543210', emergency: '' },
+    { id: 'ST1002', name: 'Priya Patel', class: 'Junior KG', parent: 'Suresh Patel', status: 'Active', email: 'priya@example.com', mobile: '9876543211', emergency: '9876543212' },
   ],
   teachers: [
     { id: 'TR2001', name: 'Ms. Sunita', subject: 'English & Rhymes', experience: '5 Years', contact: '+91 9876543210', email: 'sunita@example.com' },
