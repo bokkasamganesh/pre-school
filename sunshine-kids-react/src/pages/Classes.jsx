@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const programs = [
   {
-    id: 'playgroup', title: '👶 Playgroup', age: '2 – 3 Years', bg: 'linear-gradient(135deg, #FF6B6B, #FF9F43)', btn: 'btn-primary',
+    id: 'playgroup', title: '👶 Playgroup', age: '2 – 3 Years', bg: 'linear-gradient(135deg, #FF6B6B, #FF9F43)', btn: 'btn-primary', img: '/school_photos/pre-12.png',
     desc: 'A gentle introduction to structured learning through play, songs, and sensory exploration. We help toddlers transition from home to a social environment with love and patience.',
     details: [
       { label: 'Duration', val: '3 hours/day' }, { label: 'Class Size', val: 'Max 15 kids' },
@@ -11,7 +11,7 @@ const programs = [
     subjects: ['🎵 Rhymes & Songs', '🎨 Sensory Play', '📖 Storytelling', '🌿 Outdoor Play', '🤝 Social Skills']
   },
   {
-    id: 'nursery', title: '🧒 Nursery', age: '3 – 4 Years', bg: 'linear-gradient(135deg, #4ECDC4, #26de81)', btn: 'btn-teal',
+    id: 'nursery', title: '🧒 Nursery', age: '3 – 4 Years', bg: 'linear-gradient(135deg, #4ECDC4, #26de81)', btn: 'btn-teal', img: '/school_photos/pre-13.png',
     desc: 'Building on social readiness with early literacy and numeracy concepts. Children develop language skills, curiosity, and confidence through hands-on activities and creative play.',
     details: [
       { label: 'Duration', val: '4 hours/day' }, { label: 'Class Size', val: 'Max 20 kids' },
@@ -20,7 +20,7 @@ const programs = [
     subjects: ['🔤 Pre-Reading', '🔢 Pre-Math', '🎨 Art & Craft', '💃 Movement', '🌍 EVS Basics']
   },
   {
-    id: 'jr-kg', title: '📖 Junior KG', age: '4 – 5 Years', bg: 'linear-gradient(135deg, #A855F7, #6c3483)', btnCustom: { background: 'linear-gradient(135deg,var(--purple),#6c3483)', color: 'white' },
+    id: 'jr-kg', title: '📖 Junior KG', age: '4 – 5 Years', bg: 'linear-gradient(135deg, #A855F7, #6c3483)', btnCustom: { background: 'linear-gradient(135deg,var(--purple),#6c3483)', color: 'white' }, img: '/school_photos/pre-14.png',
     desc: 'Structured academic foundation with reading readiness, phonics, number concepts, and creative arts. Children develop critical thinking, problem-solving, and communication skills.',
     details: [
       { label: 'Duration', val: '5 hours/day' }, { label: 'Class Size', val: 'Max 25 kids' },
@@ -29,7 +29,7 @@ const programs = [
     subjects: ['🔤 Phonics', '🔢 Numbers 1–50', '🖊️ Writing', '🌿 EVS', '💻 Computers']
   },
   {
-    id: 'sr-kg', title: '🎒 Senior KG', age: '5 – 6 Years', bg: 'linear-gradient(135deg, #FF9F43, #FFE66D)', btnCustom: { background: 'linear-gradient(135deg,var(--orange),var(--accent))', color: 'var(--text)' },
+    id: 'sr-kg', title: '🎒 Senior KG', age: '5 – 6 Years', bg: 'linear-gradient(135deg, #FF9F43, #FFE66D)', btnCustom: { background: 'linear-gradient(135deg,var(--orange),var(--accent))', color: 'var(--text)' }, img: '/school_photos/pre-15.png',
     desc: 'School-readiness program preparing children for primary school. Advanced reading, writing, mathematics, science experiments, and leadership activities build confidence and independence.',
     details: [
       { label: 'Duration', val: '5.5 hours/day' }, { label: 'Class Size', val: 'Max 25 kids' },
@@ -60,10 +60,13 @@ export default function Classes() {
               <div key={p.id} style={{ borderRadius: '25px', overflow: 'hidden', boxShadow: 'var(--shadow)', transition: 'var(--transition)' }}
                 onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-10px)'}
                 onMouseLeave={e => e.currentTarget.style.transform = ''}>
-                <div style={{ background: p.bg, padding: '2.5rem 2rem', color: 'white', position: 'relative', overflow: 'hidden' }}>
-                  <div style={{ position: 'absolute', right: '-10px', bottom: '-20px', fontSize: '7rem', opacity: 0.2 }}>{p.title.split(' ')[0]}</div>
-                  <h3 style={{ fontSize: '1.8rem', marginBottom: '0.3rem' }}>{p.title}</h3>
-                  <div style={{ fontSize: '1rem', opacity: 0.9 }}>Age: {p.age}</div>
+                <div style={{ height: '200px', backgroundImage: `url(${p.img})`, backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>
+                  <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.3)' }}></div>
+                  <div style={{ position: 'absolute', inset: 0, padding: '2.5rem 2rem', color: 'white', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+                    <div style={{ position: 'absolute', right: '-10px', bottom: '-20px', fontSize: '7rem', opacity: 0.2 }}>{p.title.split(' ')[0]}</div>
+                    <h3 style={{ fontSize: '1.8rem', marginBottom: '0.3rem', textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>{p.title}</h3>
+                    <div style={{ fontSize: '1rem', opacity: 0.9, fontWeight: 600 }}>Age: {p.age}</div>
+                  </div>
                 </div>
                 <div style={{ background: 'white', padding: '2rem' }}>
                   <p style={{ color: 'var(--text-light)', lineHeight: 1.7, marginBottom: '1.5rem' }}>{p.desc}</p>

@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginModal({ isOpen, onClose }) {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('parent');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -25,7 +27,8 @@ export default function LoginModal({ isOpen, onClose }) {
           setTimeout(() => {
             setSuccess('');
             onClose();
-          }, 2000);
+            navigate('/admin');
+          }, 1500);
         } else {
           setError('Invalid Admin Credentials. Access Denied.');
         }
@@ -37,7 +40,8 @@ export default function LoginModal({ isOpen, onClose }) {
           setTimeout(() => {
             setSuccess('');
             onClose();
-          }, 2000);
+            // Optional: navigate to teacher portal if it exists
+          }, 1500);
         } else {
           setError('Invalid API Key / Password. Access Denied.');
         }
@@ -49,7 +53,7 @@ export default function LoginModal({ isOpen, onClose }) {
           setTimeout(() => {
             setSuccess('');
             onClose();
-          }, 2000);
+          }, 1500);
         } else {
           setError('Please enter both email and password.');
         }

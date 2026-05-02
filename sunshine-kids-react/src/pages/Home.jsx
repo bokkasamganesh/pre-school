@@ -1,16 +1,12 @@
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { db } from '../utils/db';
 
 const whyCards = [
   { icon: '🏫', title: 'Safe Environment', desc: 'Child-proofed classrooms, CCTV monitoring, and trained staff ensure your child\'s safety at all times.', color: 'var(--primary)' },
   { icon: '🎓', title: 'Expert Teachers', desc: 'Certified, experienced, and passionate educators dedicated to each child\'s individual growth journey.', color: 'var(--secondary)' },
   { icon: '🌿', title: 'Holistic Learning', desc: 'Our curriculum balances academics, arts, sports, and social skills for all-round development.', color: 'var(--accent)' },
   { icon: '🤝', title: 'Parent Partnership', desc: 'Regular updates, parent meetings, and open communication keep you involved every step of the way.', color: 'var(--purple)' },
-];
-
-const events = [
-  { day: '30', month: 'Apr', title: 'Parent-Teacher Meeting', desc: 'Quarterly progress discussion for all classes', time: '10:00 AM – 1:00 PM', bg: 'var(--primary)' },
-  { day: '05', month: 'May', title: '🎨 Art & Craft Competition', desc: 'Annual creativity showcase for all students', time: '9:00 AM – 12:00 PM', bg: 'var(--secondary)' },
-  { day: '15', month: 'May', title: '🌟 Annual Day Celebration', desc: 'Cultural performances, awards & fun activities', time: '5:00 PM – 8:00 PM', bg: 'var(--purple)' },
 ];
 
 const notices = [
@@ -27,12 +23,12 @@ const testimonials = [
 ];
 
 const galleryItems = [
-  { bg: 'linear-gradient(135deg,#ffe0e0,#ffb3b3)', emoji: '🎨', label: 'Art Class' },
-  { bg: 'linear-gradient(135deg,#e0f8ff,#b3e8ff)', emoji: '🎵', label: 'Music Time' },
-  { bg: 'linear-gradient(135deg,#e8ffe0,#b3ffb3)', emoji: '🌳', label: 'Outdoor Play' },
-  { bg: 'linear-gradient(135deg,#fff3e0,#ffd79e)', emoji: '📚', label: 'Story Hour' },
-  { bg: 'linear-gradient(135deg,#f3e0ff,#d9b3ff)', emoji: '🎭', label: 'Drama Club' },
-  { bg: 'linear-gradient(135deg,#e0fff3,#b3ffd9)', emoji: '🏃', label: 'Sports Day' },
+  { img: '/school_photos/pre-1.png', label: 'Art Class' },
+  { img: '/school_photos/pre-2.png', label: 'Music Time' },
+  { img: '/school_photos/pre-3.png', label: 'Outdoor Play' },
+  { img: '/school_photos/pre-4.png', label: 'Story Hour' },
+  { img: '/school_photos/pre-5.png', label: 'Drama Club' },
+  { img: '/school_photos/pre-6.png', label: 'Sports Day' },
 ];
 
 const quickLinks = [
@@ -45,6 +41,12 @@ const quickLinks = [
 ];
 
 export default function Home() {
+  const [dynamicEvents, setDynamicEvents] = useState([]);
+
+  useEffect(() => {
+    setDynamicEvents(db.get('events'));
+  }, []);
+
   return (
     <>
       {/* ANNOUNCEMENT BAR */}
@@ -99,8 +101,61 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
+      {/* DYNAMIC EVENTS SECTION */}
       <section className="section">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-tag">📅 School Life</span>
+            <h2>Latest Events & Happenings</h2>
+            <p>Catch up with all the exciting activities and special celebrations at Little Millennium.</p>
+          </div>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            {dynamicEvents.map((ev) => (
+              <div key={ev.id} className="admin-card" style={{ overflow: 'hidden', height: '100%', display: 'flex', flexDirection: 'column', boxShadow: 'var(--shadow)', borderRadius: 'var(--radius)' }}>
+                <div style={{ position: 'relative', height: '220px' }}>
+                  {ev.type === 'image' ? (
+                    <img src={ev.url} alt={ev.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  ) : (
+                    <iframe 
+                      src={ev.url} 
+                      title={ev.title} 
+                      style={{ width: '100%', height: '100%', border: 'none' }}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowFullScreen
+                    ></iframe>
+                  )}
+                  <span style={{ 
+                    position: 'absolute', 
+                    top: '1rem', 
+                    right: '1rem', 
+                    background: 'var(--primary)', 
+                    color: 'white', 
+                    padding: '0.3rem 0.8rem', 
+                    borderRadius: '20px', 
+                    fontSize: '0.75rem', 
+                    fontWeight: 700 
+                  }}>
+                    {ev.category}
+                  </span>
+                </div>
+                <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ color: 'var(--text-light)', fontSize: '0.85rem', marginBottom: '0.5rem' }}>🗓️ {ev.date}</div>
+                  <h3 style={{ fontSize: '1.25rem', marginBottom: '0.75rem' }}>{ev.title}</h3>
+                  <p style={{ color: 'var(--text-light)', fontSize: '0.9rem', lineHeight: 1.6, flex: 1 }}>{ev.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+            <Link to="/activities" className="btn btn-primary">Explore All Activities →</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE US */}
+      <section className="section section-alt">
         <div className="container">
           <div className="section-header">
             <span className="section-tag">💛 Why Choose Us</span>
@@ -121,32 +176,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EVENTS & NOTICES */}
-      <section className="section section-alt">
+      {/* NOTICES & PROGRAMS */}
+      <section className="section">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem' }} className="two-col-events">
-            <div>
-              <div className="section-header" style={{ textAlign: 'left' }}>
-                <span className="section-tag">📅 What's On</span>
-                <h2>Upcoming Events</h2>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                {events.map((ev, i) => (
-                  <div key={i} className="event-card">
-                    <div className="event-date" style={{ background: ev.bg }}>
-                      <div className="event-day">{ev.day}</div>
-                      <div className="event-month">{ev.month}</div>
-                    </div>
-                    <div className="event-info">
-                      <h4>{ev.title}</h4>
-                      <p>{ev.desc}</p>
-                      <div className="event-time">🕐 {ev.time}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <Link to="/activities" className="btn btn-teal" style={{ marginTop: '1.5rem', display: 'inline-flex' }}>View All Events →</Link>
-            </div>
             <div>
               <div className="section-header" style={{ textAlign: 'left' }}>
                 <span className="section-tag" style={{ background: 'linear-gradient(135deg,var(--orange),var(--accent))', color: 'var(--text)' }}>📌 Notice Board</span>
@@ -160,23 +193,19 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PROGRAMS BANNER */}
-      <section className="section">
-        <div className="container">
-          <div style={{ background: 'linear-gradient(135deg,var(--secondary),var(--purple))', color: 'var(--white)', borderRadius: 'var(--radius)', padding: '3rem 2rem', textAlign: 'center' }}>
-            <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>🎓 Our Programs for Every Age Group</h2>
-            <p style={{ opacity: 0.9, marginBottom: '2rem' }}>From Playgroup to Senior KG — we have the perfect program for your little one's stage of development.</p>
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
-              <span className="badge badge-green" style={{ fontSize: '1rem', padding: '0.5rem 1.2rem' }}>👶 Playgroup (2–3 yrs)</span>
-              <span className="badge badge-blue" style={{ fontSize: '1rem', padding: '0.5rem 1.2rem' }}>🧒 Nursery (3–4 yrs)</span>
-              <span className="badge" style={{ background: '#ede9fe', color: 'var(--purple)', fontSize: '1rem', padding: '0.5rem 1.2rem' }}>📖 Jr. KG (4–5 yrs)</span>
-              <span className="badge badge-red" style={{ fontSize: '1rem', padding: '0.5rem 1.2rem' }}>🎒 Sr. KG (5–6 yrs)</span>
+            <div>
+               <div style={{ background: 'linear-gradient(135deg,var(--secondary),var(--purple))', color: 'var(--white)', borderRadius: 'var(--radius)', padding: '3rem 2rem', textAlign: 'center', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>🎓 Our Programs</h2>
+                <p style={{ opacity: 0.9, marginBottom: '2rem' }}>From Playgroup to Senior KG — we have the perfect program for your little one.</p>
+                <div style={{ display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '2rem' }}>
+                  <span className="badge badge-green">👶 Playgroup</span>
+                  <span className="badge badge-blue">🧒 Nursery</span>
+                  <span className="badge" style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>📖 Jr. KG</span>
+                  <span className="badge badge-red">🎒 Sr. KG</span>
+                </div>
+                <Link to="/classes" className="btn btn-white" style={{ color: 'var(--secondary)', alignSelf: 'center' }}>Explore Programs →</Link>
+              </div>
             </div>
-            <Link to="/classes" className="btn btn-white" style={{ color: 'var(--secondary)' }}>Explore Programs →</Link>
           </div>
         </div>
       </section>
@@ -187,20 +216,14 @@ export default function Home() {
           <div className="section-header">
             <span className="section-tag">💬 Parent Stories</span>
             <h2>What Parents Are Saying</h2>
-            <p>Hear from the families who trust us with their most precious ones every day.</p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: '1.5rem' }}>
             {testimonials.map((t, i) => (
               <div key={i} style={{ background: 'var(--white)', borderRadius: 'var(--radius)', padding: '2rem', boxShadow: 'var(--shadow)', position: 'relative' }}>
-                <div style={{ fontSize: '5rem', color: 'var(--primary)', opacity: 0.15, position: 'absolute', top: '-10px', left: '20px', fontFamily: 'Georgia,serif', lineHeight: 1 }}>"</div>
-                <div style={{ color: '#f1c40f', fontSize: '1rem', marginBottom: '0.5rem' }}>★★★★★</div>
                 <p style={{ fontStyle: 'italic', color: 'var(--text-light)', lineHeight: 1.7, marginBottom: '1.2rem' }}>{t.text}</p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <div style={{ width: 50, height: 50, borderRadius: '50%', background: t.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>{t.avatar}</div>
-                  <div>
-                    <div style={{ fontWeight: 700 }}>{t.name}</div>
-                    <div style={{ fontSize: '0.85rem', color: 'var(--text-light)' }}>{t.role}</div>
-                  </div>
+                  <div style={{ width: 40, height: 40, borderRadius: '50%', background: t.bg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{t.avatar}</div>
+                  <div><div style={{ fontWeight: 700 }}>{t.name}</div><div style={{ fontSize: '0.85rem' }}>{t.role}</div></div>
                 </div>
               </div>
             ))}
@@ -217,8 +240,7 @@ export default function Home() {
           </div>
           <div className="gallery-grid">
             {galleryItems.map((g, i) => (
-              <div key={i} className="gallery-item" style={{ background: g.bg }}>
-                {g.emoji}
+              <div key={i} className="gallery-item" style={{ backgroundImage: `url(${g.img})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="gallery-overlay"><span>{g.label}</span></div>
               </div>
             ))}
@@ -232,8 +254,7 @@ export default function Home() {
       {/* CTA */}
       <section style={{ background: 'linear-gradient(135deg,var(--primary) 0%,var(--orange) 100%)', color: 'var(--white)', textAlign: 'center', padding: '5rem 2rem' }}>
         <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Ready to Give Your Child the Best Start? 🌟</h2>
-        <p style={{ fontSize: '1.1rem', opacity: 0.9, marginBottom: '2rem' }}>Join hundreds of happy families. Enroll your child at Little Millennium Preschool today!</p>
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '2rem' }}>
           <Link to="/admissions" className="btn btn-white">🎒 Apply for Admission</Link>
           <Link to="/contact" className="btn-outline-white">📞 Contact Us</Link>
         </div>
