@@ -6,6 +6,7 @@ const INITIAL_DATA = {
   teachers: [
     { id: 'TR2001', name: 'Ms. Sunita', subject: 'English & Rhymes', experience: '5 Years', contact: '+91 9876543210', email: 'sunita@example.com', password: 'password123' },
     { id: 'TR2002', name: 'Mr. Verma', subject: 'Mathematics', experience: '8 Years', contact: '+91 9876543211', email: 'verma@example.com', password: 'password123' },
+    { id: 'TR2003', name: 'Primary Teacher', subject: 'All Subjects', experience: '3 Years', contact: '+91 90000 00000', email: 'techers@gmail.com', password: 'Teachers1234' },
   ],
   staff: [
     { id: 'SF3001', name: 'John Doe', role: 'Security', contact: '+91 9876543212' },
