@@ -33,17 +33,21 @@ export default function LoginModal({ isOpen, onClose }) {
           setError('Invalid Admin Credentials. Access Denied.');
         }
       } else if (activeTab === 'teacher') {
-        if (password === SECURE_API_KEY) {
-          setSuccess(`Successfully authenticated as Teacher!`);
-          localStorage.setItem('auth_token', SECURE_API_KEY);
+        const teachers = JSON.parse(localStorage.getItem('school_db'))?.teachers || [];
+        const teacher = teachers.find(t => t.email === email && t.password === password);
+        
+        if (teacher || password === SECURE_API_KEY) { // Keep API key as fallback for testing
+          setSuccess(`Successfully authenticated as ${teacher?.name || 'Teacher'}!`);
+          localStorage.setItem('auth_token', teacher?.id || SECURE_API_KEY);
           localStorage.setItem('user_role', 'teacher');
+          localStorage.setItem('user_email', email);
           setTimeout(() => {
             setSuccess('');
             onClose();
-            // Optional: navigate to teacher portal if it exists
+            navigate('/teacher');
           }, 1500);
         } else {
-          setError('Invalid API Key / Password. Access Denied.');
+          setError('Invalid Teacher Credentials. Access Denied.');
         }
       } else {
         // Parent mock login

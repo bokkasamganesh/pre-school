@@ -26,7 +26,7 @@ const AdminLayout = () => {
     { path: '/admin/teachers', label: 'Teachers', icon: '👩‍🏫' },
     { path: '/admin/staff', label: 'Staff', icon: '👥' },
     { path: '/admin/parents', label: 'Parents', icon: '👨‍👩‍👧' },
-    { path: '/admin/attendance', label: 'Attendance', icon: '📅' },
+    { path: '/admin/leave-requests', label: 'Leave Requests', icon: '📩' },
     { path: '/admin/fees', label: 'Fees & Payments', icon: '💰' },
     { path: '/admin/exams', label: 'Exams & Results', icon: '📝' },
     { path: '/admin/events', label: 'Events', icon: '🎈' },

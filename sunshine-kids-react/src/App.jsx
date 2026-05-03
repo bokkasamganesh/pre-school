@@ -23,6 +23,8 @@ import ParentsAdmin from './pages/admin/Parents';
 import MediaAdmin from './pages/admin/Media';
 import QueriesAdmin from './pages/admin/Queries';
 import EventsAdmin from './pages/admin/Events';
+import TeacherDashboard from './pages/teacher/Dashboard';
+import LeaveRequestsAdmin from './pages/admin/LeaveRequests';
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -56,7 +58,7 @@ function App() {
           <Route path="teachers" element={<TeachersAdmin />} />
           <Route path="staff" element={<StaffAdmin />} />
           <Route path="parents" element={<ParentsAdmin />} />
-          <Route path="attendance" element={<div className="admin-card"><div className="card-header"><h3 className="card-title">Attendance Module Coming Soon</h3></div></div>} />
+          <Route path="leave-requests" element={<LeaveRequestsAdmin />} />
           <Route path="fees" element={<div className="admin-card"><div className="card-header"><h3 className="card-title">Fees & Payments Module Coming Soon</h3></div></div>} />
           <Route path="exams" element={<div className="admin-card"><div className="card-header"><h3 className="card-title">Exams & Results Module Coming Soon</h3></div></div>} />
           <Route path="events" element={<EventsAdmin />} />
@@ -64,6 +66,16 @@ function App() {
           <Route path="media" element={<MediaAdmin />} />
           <Route path="queries" element={<QueriesAdmin />} />
         </Route>
+
+        {/* Teacher Routes */}
+        <Route 
+          path="/teacher" 
+          element={
+            <ProtectedRoute allowedRoles={['teacher']}>
+              <TeacherDashboard />
+            </ProtectedRoute>
+          } 
+        />
       </Routes>
       <Footer />
     </BrowserRouter>

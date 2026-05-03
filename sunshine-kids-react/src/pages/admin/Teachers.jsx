@@ -5,7 +5,7 @@ const Teachers = () => {
   const [teachers, setTeachers] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingTeacher, setEditingTeacher] = useState(null);
-  const [formData, setFormData] = useState({ name: '', subject: '', experience: '', contact: '', email: '' });
+  const [formData, setFormData] = useState({ name: '', subject: '', experience: '', contact: '', email: '', password: '' });
 
   useEffect(() => {
     setTeachers(db.get('teachers'));
@@ -19,11 +19,12 @@ const Teachers = () => {
         subject: teacher.subject || '',
         experience: teacher.experience || '',
         contact: teacher.contact || '',
-        email: teacher.email || ''
+        email: teacher.email || '',
+        password: teacher.password || ''
       });
     } else {
       setEditingTeacher(null);
-      setFormData({ name: '', subject: '', experience: '', contact: '', email: '' });
+      setFormData({ name: '', subject: '', experience: '', contact: '', email: '', password: '' });
     }
     setIsModalOpen(true);
   };
@@ -146,6 +147,17 @@ const Teachers = () => {
                       type="email"
                       value={formData.email} 
                       onChange={(e) => setFormData({...formData, email: e.target.value})} 
+                      required 
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Login Password</label>
+                    <input 
+                      className="admin-input" 
+                      type="text"
+                      placeholder="Set login password"
+                      value={formData.password || ''} 
+                      onChange={(e) => setFormData({...formData, password: e.target.value})} 
                       required 
                     />
                   </div>

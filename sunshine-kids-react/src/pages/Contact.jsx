@@ -81,7 +81,7 @@ export default function Contact() {
                 <p style={{ opacity: 0.75, marginBottom: '2rem', fontSize: '0.95rem', lineHeight: 1.6 }}>Have questions about admissions, programs, or anything else? We're happy to help. Reach us through any channel below.</p>
                 
                 {[
-                  { icon: '📍', label: 'Address', val1: '222, 6th Cross Rd, Mico Layout, 2nd Stage Layout', val2: 'BTM Layout, Bengaluru, Karnataka 560076', bg: 'rgba(255,107,107,0.2)' },
+                  { icon: '📍', label: 'Address', val1: '222, 6th Cross Rd, Mico Layout, 2nd Stage Layout', val2: 'BTM Layout, Bengaluru, Karnataka 560076', bg: 'rgba(255,107,107,0.2)', link: 'https://www.google.com/maps/dir/?api=1&destination=Little+Millennium+Preschool+BTM+Layout+Bengaluru' },
                   { icon: '📞', label: 'Phone', val1: '+91 78923 26254', val2: '+91 80 1234 5678 (Office)', bg: 'rgba(78,205,196,0.2)' },
                   { icon: '✉️', label: 'Email', val1: 'bokkasamganesh009@gmail.com', val2: 'admissions@gmail.com', bg: 'rgba(168,85,247,0.2)' },
                   { icon: '🕐', label: 'School Hours', val1: 'Monday – Friday: 9:00 AM – 5:00 PM', val2: 'Saturday: 9:00 AM – 12:00 PM | Sunday: Closed', bg: 'rgba(255,230,109,0.2)' },
@@ -91,8 +91,17 @@ export default function Contact() {
                     <div style={{ width: '48px', height: '48px', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem', flexShrink: 0, background: c.bg }}>{c.icon}</div>
                     <div>
                       <div style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '1px', opacity: 0.6, marginBottom: '0.2rem' }}>{c.label}</div>
-                      <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>{c.val1}</div>
-                      <div style={{ opacity: 0.7, fontSize: '0.85rem' }}>{c.val2}</div>
+                      {c.link ? (
+                        <a href={c.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+                          <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>{c.val1}</div>
+                          <div style={{ opacity: 0.7, fontSize: '0.85rem' }}>{c.val2}</div>
+                        </a>
+                      ) : (
+                        <>
+                          <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>{c.val1}</div>
+                          <div style={{ opacity: 0.7, fontSize: '0.85rem' }}>{c.val2}</div>
+                        </>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -190,11 +199,20 @@ export default function Contact() {
             <p>Conveniently located in BTM Layout, Bengaluru — easy access from all major areas</p>
           </div>
           <div style={{ background: 'linear-gradient(135deg, #e8f4f8, #d0ebf0)', borderRadius: '25px', height: '380px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1rem', position: 'relative', overflow: 'hidden', padding: 0 }}>
-            <iframe src="https://maps.google.com/maps?q=WJ74+H6%20Bengaluru,%20Karnataka&key=AIzaSyCHH2ZePIi-EEX8XoasFEx3StJYDifHLf8&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://maps.google.com/maps?q=Little%20Millennium%20Preschool%20BTM%20Layout%20Bengaluru&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
           <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
             <h3 style={{ fontSize: '1.3rem', color: 'var(--text)' }}>Little Millennium Preschool</h3>
-            <p style={{ color: 'var(--text-light)', textAlign: 'center', fontSize: '0.95rem' }}>222, 6th Cross Rd, Mico Layout, 2nd Stage Layout<br />BTM Layout, Bengaluru, Karnataka 560076</p>
+            <p style={{ color: 'var(--text-light)', textAlign: 'center', fontSize: '0.95rem', marginBottom: '1.5rem' }}>222, 6th Cross Rd, Mico Layout, 2nd Stage Layout<br />BTM Layout, Bengaluru, Karnataka 560076</p>
+            <a 
+              href="https://www.google.com/maps/dir/?api=1&destination=Little+Millennium+Preschool+BTM+Layout+Bengaluru" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn btn-primary" 
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', borderRadius: '50px', padding: '0.8rem 2rem', textDecoration: 'none' }}
+            >
+              📍 View on Google Maps
+            </a>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginTop: '2rem' }}>
             {[

@@ -41,7 +41,7 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Contact</h4>
             <ul>
-              <li><a href="#">📍 222, 6th Cross Rd, Mico Layout, BTM Layout</a></li>
+              <li><a href="https://www.google.com/maps/dir/?api=1&destination=Little+Millennium+Preschool+BTM+Layout+Bengaluru" target="_blank" rel="noopener noreferrer">📍 222, 6th Cross Rd, Mico Layout, BTM Layout</a></li>
               <li><a href="tel:+917892326254">📞 +91 78923 26254</a></li>
               <li><a href="mailto:bokkasamganesh009@gmail.com">✉️ bokkasamganesh009@gmail.com</a></li>
               <li><a href="#">🕐 Mon–Fri: 9AM–5PM | Sat: 9AM–12PM</a></li>

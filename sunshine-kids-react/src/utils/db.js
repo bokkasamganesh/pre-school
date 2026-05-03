@@ -4,8 +4,8 @@ const INITIAL_DATA = {
     { id: 'ST1002', name: 'Priya Patel', class: 'Junior KG', parent: 'Suresh Patel', status: 'Active', email: 'priya@example.com', mobile: '9876543211', emergency: '9876543212' },
   ],
   teachers: [
-    { id: 'TR2001', name: 'Ms. Sunita', subject: 'English & Rhymes', experience: '5 Years', contact: '+91 9876543210', email: 'sunita@example.com' },
-    { id: 'TR2002', name: 'Mr. Verma', subject: 'Mathematics', experience: '8 Years', contact: '+91 9876543211', email: 'verma@example.com' },
+    { id: 'TR2001', name: 'Ms. Sunita', subject: 'English & Rhymes', experience: '5 Years', contact: '+91 9876543210', email: 'sunita@example.com', password: 'password123' },
+    { id: 'TR2002', name: 'Mr. Verma', subject: 'Mathematics', experience: '8 Years', contact: '+91 9876543211', email: 'verma@example.com', password: 'password123' },
   ],
   staff: [
     { id: 'SF3001', name: 'John Doe', role: 'Security', contact: '+91 9876543212' },
@@ -24,7 +24,9 @@ const INITIAL_DATA = {
   events: [
     { id: 'EV1001', title: 'Annual Sports Day', date: '2024-06-15', category: 'Sports', type: 'image', url: '/images/events/sports.jpg', description: 'Join us for a day of fun and games!' },
     { id: 'EV1002', title: 'Science Exhibition', date: '2024-07-10', category: 'Academic', type: 'image', url: '/images/events/science.jpg', description: 'Explore the wonders of science with our little scientists.' },
-  ]
+  ],
+  teacher_attendance: [],
+  leave_requests: []
 };
 
 const getDB = () => {
