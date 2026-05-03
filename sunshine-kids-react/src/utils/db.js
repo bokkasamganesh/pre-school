@@ -31,12 +31,36 @@ const INITIAL_DATA = {
 };
 
 const getDB = () => {
-  const data = localStorage.getItem('school_db');
-  if (!data) {
+  const localData = localStorage.getItem('school_db');
+  if (!localData) {
     localStorage.setItem('school_db', JSON.stringify(INITIAL_DATA));
     return INITIAL_DATA;
   }
-  return JSON.parse(data);
+  
+  const parsedData = JSON.parse(localData);
+  let updated = false;
+
+  // Merge missing collections and default teachers
+  Object.keys(INITIAL_DATA).forEach(key => {
+    if (!parsedData[key]) {
+      parsedData[key] = INITIAL_DATA[key];
+      updated = true;
+    }
+  });
+
+  // Specifically check for our new default teachers to ensure they are available
+  INITIAL_DATA.teachers.forEach(defaultTeacher => {
+    if (!parsedData.teachers.find(t => t.email === defaultTeacher.email)) {
+      parsedData.teachers.push(defaultTeacher);
+      updated = true;
+    }
+  });
+
+  if (updated) {
+    localStorage.setItem('school_db', JSON.stringify(parsedData));
+  }
+  
+  return parsedData;
 };
 
 const saveDB = (data) => {
