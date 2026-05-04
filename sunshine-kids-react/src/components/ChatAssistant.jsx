@@ -14,7 +14,7 @@ const SCHOOL_KNOWLEDGE = {
 
 const BOT_RESPONSES = {
   security: "I cannot provide any login credentials, passwords, or sensitive information. That information is strictly confidential. 🔒",
-  greetings: "Hello! 🌟 Welcome to Sunshine Kids (Little Millennium). How can I help you today? I can tell you about our programs, admissions, or location!",
+  greetings: "Hello! I am Gani-AI. How can I help you today? I can assist you with programs, admissions, or any queries you have!",
   programs: "We offer several programs: \n- **Playgroup** (2-3 years)\n- **Nursery** (3-4 years)\n- **Junior KG** (4-5 years)\n- **Senior KG** (5-6 years)\nEach program is designed for holistic development!",
   admission: "Admission is currently open! 📝 You can fill out the inquiry form on our Contact page, or visit us directly. Would you like the admission fee details?",
   location: "We are located in **BTM Layout, Bangalore**. You can find our exact pin on the Contact page. 📍",
@@ -27,7 +27,7 @@ const BOT_RESPONSES = {
 export default function ChatAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { text: "Hi! I'm Sunny, your Sunshine Assistant. ☀️ How can I help you today?", isBot: true }
+    { text: "Hi! I'm Gani-AI. How can I assist you today?", isBot: true }
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -77,10 +77,10 @@ export default function ChatAssistant() {
         <div className="chat-window">
           <div className="chat-header">
             <div className="bot-info">
-              <div className="bot-avatar">☀️</div>
+              <div className="bot-avatar">🤖</div>
               <div>
-                <h4>Sunny Assistant</h4>
-                <span>Online</span>
+                <h4>Gani-AI</h4>
+                <span>Smarter. Faster. More Human.</span>
               </div>
             </div>
             <button onClick={() => setIsOpen(false)} className="close-btn">✕</button>
