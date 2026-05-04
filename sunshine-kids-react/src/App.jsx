@@ -25,6 +25,7 @@ import QueriesAdmin from './pages/admin/Queries';
 import EventsAdmin from './pages/admin/Events';
 import TeacherDashboard from './pages/teacher/Dashboard';
 import LeaveRequestsAdmin from './pages/admin/LeaveRequests';
+import ChatAssistant from './components/ChatAssistant';
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -78,6 +79,7 @@ function App() {
         />
       </Routes>
       <Footer />
+      <ChatAssistant />
     </BrowserRouter>
   );
 }
